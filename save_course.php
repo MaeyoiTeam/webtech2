@@ -134,10 +134,11 @@ mysqli_free_result($result);
   </table>
 
 
+<?php
+echo   "<form  action='homework.php' method='post'>";
+echo "<button type='submit' name='course' value='".$txt[0]."/".$txt[1]."'>Homework</button></form>";
 
-
-
-
+?>
 
 
 
