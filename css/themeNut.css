@@ -1,0 +1,36 @@
+#container{
+    margin: 0 auto;
+    width: 800px;
+    height: 600px;
+    border: 1px solid black;
+    background-color: dodgerblue;
+}
+
+header{
+    width: 800px;
+    height: 150px;
+    border: 1px solid black;
+    background-color:darkgrey;
+}
+
+nav{
+    float: left;
+    width: 200px;
+    height: 450px;
+    border: 1px solid black;
+}
+
+aside{
+    float: right;
+    width: 200px;
+    height: 447px;
+    border: 1px solid black;
+}
+
+article{
+    margin: 0 auto;
+    width: 400px;
+    height: 447px;
+    border: 1px solid black;
+    background-color: aliceblue;
+}

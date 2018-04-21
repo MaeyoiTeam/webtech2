@@ -1,4 +1,5 @@
 <?php
+
 if(isset($_POST['submit'])){
     $file =$_FILES['file']; 
     $fileName      = $_FILES['file']['name'];
@@ -18,7 +19,14 @@ if(isset($_POST['submit'])){
                 $fileNameNew = uniqid('',true).".".$fileActualExt;
                 $fileDestination ='uploads/'.$fileNameNew;
                 move_uploaded_file($fileTmpName,$fileDestination);
-                echo "File location :".$fileDestination;
+include 'config.php';
+                mysqli_query($objCon,"INSERT INTO images (image) VALUES ('$fileDestination')");
+	       
+
+
+
+
+
             }else{
                 echo "Your file is too big!(Limit 100mb)";
             }

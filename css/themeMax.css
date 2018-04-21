@@ -1,0 +1,159 @@
+*{margin:0;
+    font-family: 'Muli', sans-serif;
+    
+}
+
+
+
+
+#container{
+    
+    margin: 0 auto;
+    width: 1100px;
+    height: 1600px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+nav{
+    text-align:center;
+    background-color: #FFFFFF;
+    width: 100%;
+    height: 30px;
+    position: fixed;
+     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    
+}
+
+
+header{
+    text-align:left;
+    background-color: gray;
+    height: 200px;
+    background-image:url("../images/stars.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: right;
+    font-size: 60px;
+    color:white;
+     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4), 0 12px 40px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+aside{
+    text-align:left;
+    
+    background-color: gainsboro;
+    width: 20%;
+    float: left;
+    height: 100%;
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2), 0 0 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#asidemenu{
+    padding-top: 100px;
+    padding-left: 20px;
+    font-size:16px;
+}
+
+
+article{
+   
+    background-color: ghostwhite;
+    float: right;
+    width: 80%;
+    height: 100%;
+    
+    
+}
+.content{
+    font-family: 'Muli', sans-serif;
+        margin-left: 10px;
+        margin-top: 100px;
+        font-size: 20px;
+    }
+footer{
+    text-align:center;
+    color:white;
+    background-color:black;
+    width: 100%;
+    height: 70px;
+    clear: both;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4), 0 12px 40px 0 rgba(0, 0, 0, 0.19);
+    
+}
+footer span{
+    font-size: 24px;
+}
+
+#floatingMenu{
+   font-family: sans-serif;
+    background-color:darkgray;
+    padding: 5px;;
+    width: 150px;
+    height: 500px;
+    z-index: 100;
+    position: fixed;
+    right: 0px;
+    top: 30%;
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2), 0 0 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#framefloating{
+    font-family: sans-serif;
+    background-color:darkgray;
+    padding: 5px;;
+    width: 150px;
+    height: 500px;
+    z-index: 100;
+    position: fixed;
+    right: 0px;
+    top: 30%;
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2), 0 0 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+.closeFloating{
+    
+    font-family: sans-serif;
+    
+    width: 50px;
+    z-index: 100;
+    position: fixed;
+    right: 0px;
+    background-color: black;
+    align-content: center;
+    color:white;
+    font-size: 3px;
+    border-radius: 3px;
+    bottom: 73%
+}
+button{
+    padding: 5px;
+    background-color:black;
+    color:white;
+    border: none;
+    border-radius: 3px;
+}
+
+
+    
+.tbl_cld{
+    text-align:center;
+    font-size: 38px;
+    margin: 0 auto;
+}
+.weekend{
+    color:red;
+}
+th{
+    padding: 40px;
+    border-radius: 30px;
+}
+
+tr.date1{
+    background-color: #f2f2f2;
+}
+tr.day,tr.date2{
+    background-color: #b3d9ff;
+}
+
+
