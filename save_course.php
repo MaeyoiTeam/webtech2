@@ -137,6 +137,8 @@ mysqli_free_result($result);
 <?php
 echo   "<form  action='homework.php' method='post'>";
 echo "<button type='submit' name='course' value='".$txt[0]."/".$txt[1]."'>Homework</button></form>";
+echo   "<form  action='stu_selectseat2.php' method='post'>";
+echo "<button type='submit' name='course' value='".$txt[0]."/".$txt[1]."'>Join Course</button></form>";
 
 ?>
 

@@ -1,15 +1,25 @@
 <?php
 //echo"<html> meta http-equiv="Content-Type" content="text/html; charset=utf-8" />";
-	include("config.php");
+	include("php/config.php");
 
-$query = "SELECT * FROM studentseat2 ";
-$result = $objCon->query($query);
+
+$course =$_POST["course"];
+$txt = explode("/",$course);
+//echo $txt[0]; //course_ID
+//echo $txt[1]; // sec
+
+$strSQL = "SELECT coursedate.date_date FROM coursedate WHERE coursedate.course_ID = '".txt[0]."' AND coursedate.sec = '".txt[1]."'";
+
+
+
+$query = "SELECT * FROM seat ";
+$tresult = $objCon->query($query);
 
 
 //$objResult = mysqli_fetch_array($objCon,MYSQLI_ASSOC);
 
-while($success_seat = mysqli_fetch_array($result)){
-if (!$result) {
+while($success_seat = mysqli_fetch_array($tresult)){
+if (!$tresult) {
     printf("Error1");
     exit();
 }
@@ -21,7 +31,8 @@ $seat = $success_seat["seat_num"];
 $allseat = $row*$seat;
 $l = 1;
 $n = 1;    
-echo "<form method='post' action='save_seat.php' name='radio_selectseat'>";
+    
+echo "<form method='post' action='save_seat.php' name='radio_selectseat'>";     
 echo"<center><table width='1000' height='95' border='2' cellspacing='4' cellpadding='10'>";
     for($i=1 ; $i<=$row ; $i++){
         echo"<tr>";
@@ -45,7 +56,23 @@ echo"<center><table width='1000' height='95' border='2' cellspacing='4' cellpadd
         echo"</tr>";
     }
       echo"</table></center>";
-    echo"<br><center><input type='submit' name='submit' id='submit' value='Submit'></center>";
+    echo "<select name='subject'>" ?>
+<?php
+    
+    $subject = "SELECT coursedate.date_date FROM coursedate WHERE coursedate.course_ID = '".$txt[0]."' AND coursedate.sec = '".$txt[1]."'";
+    if($result=mysqli_query($objCon,$subject)){
+  // Fetch one and one row
+  while ($row=mysqli_fetch_row($result))
+    {
+      echo "<option name ='date' value='$row[0]'> ".$row[0]."</option>";
+    }
+  // Free result set
+  mysqli_free_result($result);
+}
+echo "</select>";
+?>    
+<?php
+    echo "<button type='submit' name='course' value='".$txt[0]."/".$txt[1]."'>Submit</button>";
     echo"<br><center><button type='button' onclick='history.go(-1);'>Back </button></center>";
 echo"</form>";
         
