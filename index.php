@@ -1,5 +1,5 @@
 <?php
-if(session_id()===''){
+if(session_id()==''){
 session_start();
  
 }
@@ -15,7 +15,7 @@ include('php/config.php');
         <script type="text/javascript" src="js/time.js">  </script>
         <link rel="stylesheet" type="text/css" href="css/themeMax.css">
         <link rel="stylesheet" href="css/menu.css" type="text/css" />
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     
     <body >
@@ -36,19 +36,51 @@ include('php/config.php');
             </div>
             
             <div id="floatingMenu">
-                <?php
-                      echo $_SESSION['ID']."<br>";
-                      echo $_SESSION['Status']."<br>";
-                      ?>
+                 <?php include 'php/calendar.php';?> 
             </div>
             
            
              <article >
-                  <div class="content">
-                    
+                 <div class="container">
+    <div id="content" align="center">
+		<h1>Annoucement</h1><br><br>
+		
 
-                   
-                 </div>
+
+<?php
+    date_default_timezone_set("Asia/Bangkok");
+    
+    $strSQL = "SELECT * FROM noticemsg ";
+    $showquery = $mysqli->query($strSQL);
+
+
+    
+ ?>
+    <div>
+    <table width="600" border="1">
+  <tr>
+   
+      <th width="198"> <div align="center"><h3>Message</h3></div></th>
+      <th width="198"> <div align="center"><h3>Date-Time</h3></div></th>
+    
+  </tr>
+     <?php
+    $resultshow = array();
+while($resultshow = mysqli_fetch_array($showquery,MYSQLI_ASSOC))
+{
+    ?>
+  <tr>
+   
+      <td><div align="center"><?php echo $resultshow["message"];?></div></td>
+      <td><div align="center"><?php echo $resultshow["date_time"];?></div></td>
+</tr>
+<?php } ?>
+
+<?php
+mysqli_close($mysqli);
+?>
+    </table> 
+    </div>
             </article>
             
             

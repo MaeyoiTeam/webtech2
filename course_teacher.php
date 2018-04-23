@@ -12,9 +12,9 @@ if(isset($_SESSION['ID'])){
                         $sql ="studentt";  
                     }
 include('php/config.php');  
-$sql="SELECT course.ID,course.course_name,studentcourse.sec
-FROM course,studentcourse
-WHERE course.ID=studentcourse.course_ID AND studentcourse.studnet_ID='".$_SESSION["ID"]."'";
+$sql="SELECT course.*,course.course_name,teachert.*
+FROM course,teachert
+WHERE  course.Teacher_ID='".$_SESSION["ID"]."'";
 $ID = array();
 $x=1;
 if ($result=mysqli_query($objCon,$sql))
@@ -24,15 +24,14 @@ if ($result=mysqli_query($objCon,$sql))
     {
       $ID[$x]=$row[0];
       $course_name[$x] =$row[1];
-      $sec[$x]=$row[2];
       $x++;
     }
   // Free result set
   mysqli_free_result($result);
 }
+}
 else{
 echo "<script LANGUAGE='JavaScript'>window.alert('Fail');window.location.href='home.php';</script>";
-}
 }
 ?>
 <!DOCTYPE html>
@@ -73,9 +72,12 @@ setTimeout(function(){
     
     <body >
         <nav>
-            <div id="tabs" ></div>
-            <div id="tabs2">
-    <?php include 'php/menutop2.php';?>
+            <div id="tabs" >
+            
+                    
+            </div>
+             <div id="tabs2" >
+                   <?php include 'php/menutop3.php';?>
             </div>
             </nav>
 
@@ -88,7 +90,7 @@ setTimeout(function(){
             </div>
             
             <div id="floatingMenu">
-               <?php include 'php/calendar.php';?> 
+                <?php include 'php/calendar.php';?> 
             </div>
             
            
@@ -101,16 +103,26 @@ $temp=1;
 
 
 echo  "<table cellspacing=25 cellpadding=25>";
-echo   "<form  action='save_course.php' method='post'>";
+
+echo   "<form  action='save_course_teacher.php' method='post'>";
     for($j=0;$j<$x/5;$j++){
         echo "<tr class='chair'>";
 
             for($i=0;$i<5;$i++){
-        echo "<td id='tes".$temp."'>";
-        echo    "<button type='submit' name='course' value='".$ID[$temp]."/".$sec[$temp]."'>";
+        echo "<td id='tes".$temp."/21'>";
+        echo    "<button type='submit' name='course' value='".$ID[$temp]."/21'>";
                 if(isset($ID[$temp])){
-                    echo "<p>".$course_name[$temp]."<br> ".$ID[$temp]."<br>".$sec[$temp]."</p></a>";        
+                    echo "<p>".$course_name[$temp]."<br> ".$ID[$temp]."<br>21</p></a>";        
                 }
+        
+            echo    "</div>";
+                
+        echo "<td id='tes".$temp."/22'>";
+        echo    "<button type='submit' name='course' value='".$ID[$temp]."/22'>";
+                if(isset($ID[$temp])){
+                    echo "<p>".$course_name[$temp]."<br> ".$ID[$temp]."<br>22</p></a>";        
+                }
+        
             echo    "</div>";
 
                 echo "</td>";
@@ -124,8 +136,6 @@ echo   "<form  action='save_course.php' method='post'>";
 
 echo  "</form></table>";
 ?>
-
-
                       <a href="index.php"><img id="add" src="images/icon/ic_add_circle_black_48dp_1x.png"></a>
                  </div>
             </article>
@@ -133,9 +143,7 @@ echo  "</form></table>";
             
             <aside >
                 <div id=asidemenu>
-            <?php include 'php/menuleft.php';?>
-
-    
+            <?php include 'php/menuleft.php';?>    
                 </div>
            
             </aside>
@@ -150,4 +158,3 @@ echo  "</form></table>";
     </body>    
 
 </html>
-

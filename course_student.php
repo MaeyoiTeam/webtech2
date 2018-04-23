@@ -3,14 +3,6 @@ if(session_id()===''){
 session_start();
  
 }
-if(isset($_SESSION['ID'])){
-                    $idtest = $_SESSION['ID'];
-                    if($_SESSION['Status']=="Teacher"){
-                        $sql = "teachert";
-                    }
-                    else{
-                        $sql ="studentt";  
-                    }
 include('php/config.php');  
 $sql="SELECT course.ID,course.course_name,studentcourse.sec
 FROM course,studentcourse
@@ -29,10 +21,6 @@ if ($result=mysqli_query($objCon,$sql))
     }
   // Free result set
   mysqli_free_result($result);
-}
-else{
-echo "<script LANGUAGE='JavaScript'>window.alert('Fail');window.location.href='home.php';</script>";
-}
 }
 ?>
 <!DOCTYPE html>
@@ -88,7 +76,7 @@ setTimeout(function(){
             </div>
             
             <div id="floatingMenu">
-               <?php include 'php/calendar.php';?> 
+                <p>float</p>
             </div>
             
            
@@ -101,7 +89,7 @@ $temp=1;
 
 
 echo  "<table cellspacing=25 cellpadding=25>";
-echo   "<form  action='save_course.php' method='post'>";
+echo   "<form  action='save_course_student.php' method='post'>";
     for($j=0;$j<$x/5;$j++){
         echo "<tr class='chair'>";
 

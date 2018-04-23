@@ -1,14 +1,16 @@
 <?php
+
+if(session_id()===''){
+session_start();
+ 
+}
+
+
 include('config.php');
 date_default_timezone_set("Asia/Bangkok");
-$course =$_POST["course"];
-$txt = explode("/",$course);
-$name=$_POST['name'];
 $note=$_POST['note'];
-$finish=$_POST['finish'];
-$time=$_POST['time'];
-$start = date('Y-m-d');
-
+$homeworkid=$_POST['homeworkid'];
+$send = date('Y-m-d');
     $file =$_FILES['file']; 
     $fileName      = $_FILES['file']['name'];
     $fileTmpName  = $_FILES['file']['tmp_name'];
@@ -39,9 +41,9 @@ $start = date('Y-m-d');
     }
 
 
-$strSQL = "INSERT INTO homework (ID,name,note,file,course_ID,sec,date_start,date_finish,time_finish) VALUES (null,'".$name."','".$note."','".$fileDestination."', '".$txt[0]."' , '".$txt[1]."' , '".$start."','".$finish."','".$time."')";
+$strSQL = "INSERT INTO studenthomework (ID,homework_ID,student_ID,date_send,data,file) VALUES (null,'".$homeworkid."','".$_SESSION['ID']."','".$send."','".$note."','".$fileDestination."')";
 		$objQuery = mysqli_query($objCon,$strSQL);
-    echo "<script LANGUAGE='JavaScript'>window.alert('Upload Success');window.location.href='../course_teacher.php';</script>";
+    echo "<script LANGUAGE='JavaScript'>window.alert('Upload Success');window.location.href='../homework_student.php';</script>";
 
 
 	       

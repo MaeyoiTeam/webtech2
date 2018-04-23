@@ -12,7 +12,7 @@ $strSQL = "SELECT coursedate.date_date FROM coursedate WHERE coursedate.course_I
 
 
 
-$query = "SELECT * FROM seat ";
+$query = "SELECT * FROM seat WHERE seat.course_ID='".$txt[0]."'";
 $tresult = $objCon->query($query);
 
 

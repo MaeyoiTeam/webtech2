@@ -52,30 +52,23 @@ include('php/config.php');
  <?php
 
 
-$course =$_POST["course"];
-$txt = explode("/",$course);
-echo "Course ID :".$txt[0]."<br>"; //course_ID
-echo "Sec :".$txt[1]; // sec
+$homeworkid =$_POST["homeworkid"];
+
 
 
 ?>
 
      
-                     <form action='php/save_homework.php' method='post' enctype="multipart/form-data">
+                     <form action='php/send_homework.php' method='post' enctype="multipart/form-data">
 
                          <span >name</span>
                          <span style="padding-left: 6em">note</span>
-                         <span style="padding-left: 13.2em">date</span>
-                         <span style="padding-left: 5.2em">time</span>
 <br>
-<input type="text" name="name"> 
-<input type="text" name="note" style="padding-bottom: 6.5em; padding-right: 10em">
-<input type='date' name="finish"> 
-<input type="time" name="time"> 
+<input type="text" name="note" style="padding-bottom: 6.5em; padding-right: 10em"> 
 <br>
 <input type="file" name="file" >
 <?php
-                    echo    "<button type='submit' name='course' value='".$txt[0]."/".$txt[1]."'>Submit</button></form>";
+                    echo    "<button type='submit' name='homeworkid' value='".$homeworkid."'>Submit</button></form>";
 ?>
 
 

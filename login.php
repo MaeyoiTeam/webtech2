@@ -1,14 +1,20 @@
 <?php
-	session_start();
+if(session_id()===''){
+session_start();
+ 
+}
+include('php/config.php');
     if (isset($_SESSION['ID']))
 	{
         echo "<script type='text/javascript'>alert('Loged in!');</script>";
 		echo "<script type='text/javascript'>window.location='index.php';</script>";
 	}
 ?>
+<!DOCTYPE html>
 <html>
     <head>
-    <style>
+
+<style>
 #randomfield { 
 -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -23,12 +29,45 @@
   font-size: 40px;
   background-image: url('http://4.bp.blogspot.com/-EEMSa_GTgIo/UpAgBQaE6-I/AAAAAAAACUE/jdcxZVXelzA/s1600/ca.png');
 }
-</style></head>
+</style>
+
+        <meta charset="UTF-8">
+        
+        <script type="text/javascript" src="js/mouse.js">  </script>
+        <script type="text/javascript" src="js/time.js">  </script>
+        <link rel="stylesheet" type="text/css" href="css/themeMax.css">
+        <link rel="stylesheet" href="css/menu.css" type="text/css" />
+
+    </head>
     
-<body onLoad="ChangeCaptcha()"> 
-    
-    
-    <script>
+    <body onLoad="ChangeCaptcha()">
+        <nav>
+            <div id="tabs" >
+             <?php include 'php/menutop.php';?>
+                    
+            </div>
+             <div id="tabs2" >
+                    
+            </div>
+            </nav>
+
+     
+        <div id="container">
+            
+            
+            <div class="closeFloating" >
+             <a onclick="onOffbar()"><button id="textCloseFloating">Close</button></a>
+            </div>
+            
+            <div id="floatingMenu">
+
+            </div>
+            
+           
+             <article >
+             <div class="content">
+             
+                 <script>
 function ChangeCaptcha() {
 	var chars = "0123456789ABCDEFGHJKLMNOPQRSTUVWXTZabcdefghikmnopqrstuvwxyz";
 	var string_length = 6;
@@ -47,11 +86,8 @@ if(document.getElementById('CaptchaEnter').value == document.getElementById('ran
     else{alert('Secure Code is Wrong!')};
 }
 </script>
-    
-    
-    
-<form id="form1" method="post" action="check_login.php">
-  <h1 align="center">Login<br>
+                 <form id="form1" method="post" action="check_login.php">
+                     <h1 align="center">Login<br></h1>
   <table style="width: 300px" align="center">
     <tbody>
       <tr>
@@ -67,14 +103,39 @@ if(document.getElementById('CaptchaEnter').value == document.getElementById('ran
       </tr>
     </tbody>
   </table>
-  <br><br>
+  <br>
 </form>
     <center><input type="text" id="randomfield" disabled></center><br>
     <center><input id="CaptchaEnter" size="20" maxlength="6" /></center><br>
     <center><button type="button" onclick="check()">Log in</button></center> 
 <form name="form2" action="home.php"> 
-    <Br><center><button>Go Home</button></center>
+    <br><center><button>Go Home</button></center>
 </form>
+                 
+                 
+                 </div>
+              </article>
+            
+            
+            <aside >
+                <div id=asidemenu>
+            <?php include 'php/menuleft2.php';?>
+                </div>
+           
+            </aside>
+       
+        </div>
+        
+        <footer>
+               <p>Footer</p>
+            </footer>
 
-</body>
+        
+    </body>    
+
 </html>
+
+
+    
+    
+    

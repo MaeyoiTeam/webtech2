@@ -4,7 +4,6 @@ session_start();
  
 }
 include('php/config.php');
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -25,7 +24,7 @@ include('php/config.php');
                     
             </div>
              <div id="tabs2" >
-                    
+                   <?php include 'php/menutop3.php';?>
             </div>
             </nav>
 
@@ -38,7 +37,7 @@ include('php/config.php');
             </div>
             
             <div id="floatingMenu">
-
+			 <?php include 'php/calendar.php';?> 
             </div>
             
            

@@ -17,13 +17,13 @@
 
 			session_write_close();
 			
-			if($objResult["Status"] == "TEACHER")
+			if($objResult["Status"] == "Teacher")
 			{
-				header("location:teacher_page.php");
+				header("location:course_teacher.php");
 			}
 			else
 			{
-				header("location:student_page.php");
+				header("location:course_student.php");
 			}
 	}
 	mysqli_close($objCon);
