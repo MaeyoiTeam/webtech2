@@ -9,7 +9,8 @@ $finish=$_POST['finish'];
 $time=$_POST['time'];
 $start = date('Y-m-d');
 
-    $file =$_FILES['file']; 
+
+ $file =$_FILES['file']; 
     $fileName      = $_FILES['file']['name'];
     $fileTmpName  = $_FILES['file']['tmp_name'];
     $fileType      = $_FILES['file']['type'];
@@ -41,11 +42,12 @@ $start = date('Y-m-d');
 
 $strSQL = "INSERT INTO homework (ID,name,note,file,course_ID,sec,date_start,date_finish,time_finish) VALUES (null,'".$name."','".$note."','".$fileDestination."', '".$txt[0]."' , '".$txt[1]."' , '".$start."','".$finish."','".$time."')";
 		$objQuery = mysqli_query($objCon,$strSQL);
+        $objResult = mysqli_fetch_array($objQuery);
+//โคตรชิบหาย ตรงเก็บข้อมูลให้ตรงกับ date ที่มี  
+if($objQuery){
     echo "<script LANGUAGE='JavaScript'>window.alert('Upload Success');window.location.href='../course_teacher.php';</script>";
-
-
-	       
-
-
-
+}
+else{
+echo "<script LANGUAGE='JavaScript'>window.alert('Upload Fail');window.location.href='../course_teacher.php';</script>";
+}
 ?>

@@ -14,39 +14,43 @@
 if(isset($_SESSION['ID'])){
                     $idtest = $_SESSION['ID'];
 					
-                    if($_SESSION['Status']=="Teacher"){
+                    if($_SESSION["Status"]=="Teacher"){
                         $sql = "teachert";
                     }
                     else{
                         $sql ="studentt";  
                     }
 
- $strSQL = "SELECT fname,lname FROM ".$sql." WHERE ID = '".$_SESSION['ID']."'";
+                   $strSQL = "SELECT * FROM ".$sql." WHERE ID = '".$_SESSION['ID']."'";
 	               $result=mysqli_query($objCon,$strSQL);
-                     $row=mysqli_fetch_row($result);
+                    $row=mysqli_fetch_row($result);
     $img="images/".$_SESSION['ID'].".jpg";
 	if(isset($img)){ 
-      echo "<br><img class='imgs' src='images/".$_SESSION['ID'].".jpg' width='60%' float:'center' style='border-radius: 50%;'><br>";
+      echo "<br><img class='imgs' src='images/".$_SESSION['ID'].".jpg' width='60%' float:'center' style='padding-left:20%' style='border-radius: 50%;'><br>";
        
       
     } else { 
       
-         echo "<br><img class='imgs' src='images/defalut.jpg' width='60%' float:'center' style='border-radius: 50%;'><br>";
+         echo "<br><img class='imgs' src='images/defalut.jpg' width='60%' float:'center' style='padding-left:20%' style='border-radius: 50%;'><br>";
       
     }
    	echo "<p align='center'>".$idtest."</p>"; 
-   	echo "<p align='center'>".$row[0]." ".$row[1]."</p><br>";
+   	echo "<p align='center'>".$row[1]." ".$row[2]."</p><br>";
     echo "<p align='center'> <a href='edit_profile.php' class='button button-pill button-flat'>Edit</a></p><br><br><br>";
    
-   	echo  "<a href='Annoucement.php' class='button button-pill button-flat-caution' style='padding-right:32%' >Annoucement</a><br><br>";
+   	echo  "<a href='index.php' class='button button-pill button-flat-caution' style='padding-right:32%' >Annoucement</a><br><br>";
 	
 	if($_SESSION['Status']=="Teacher"){
                        echo  "<a href='course_teacher.php'  class='button button-pill button-flat-caution' style='padding-right:52%' >Course</a><br><br>";
                     }
                     else{
-                       echo  "<a href='course.php' class='button button-pill button-flat-caution' style='padding-right:52%'>Course</a><br><br>";
+                       echo  "<a href='course_student.php' class='button button-pill button-flat-caution' style='padding-right:52%'>Course</a><br><br>";
                     }
 	
+}
+else{
+ echo  "<a href='login.php'  class='button button-pill button-flat-caution' style='padding-right:52%' >Login</a><br><br>";
+ echo  "<a href='register.php'  class='button button-pill button-flat-caution' style='padding-right:52%' >Register</a><br><br>";
 }
 ?>
       </body>

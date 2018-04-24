@@ -39,15 +39,21 @@ $send = date('Y-m-d');
     }else{
         echo "You cannot upload files of this type!";
     }
+$strSQL = "SELECT * FROM studenthomework WHERE studenthomework.student_ID='".$_SESSSION['ID']."' AND studenthomework.homework_ID='".$homeworkid."'  ";
+$objQuery = mysqli_query($objCon,$strSQL);
+$objResult = mysqli_fetch_array($objQuery);
+/*
+           $strSQL = "UPATE  studenthomework SET date_send= '".$send."' ,data= '".$note."' ,file='".$fileDestination."' WHERE homework_ID='".$homeworkid."' AND student_ID='".$_SESSION['ID']."'";
+		$objQuery = mysqli_query($objCon,$strSQL);
+        echo "<script LANGUAGE='JavaScript'>window.alert('Update Success');window.location.href='../homework_student.php';</script>";*/
 
-
+        
 $strSQL = "INSERT INTO studenthomework (ID,homework_ID,student_ID,date_send,data,file) VALUES (null,'".$homeworkid."','".$_SESSION['ID']."','".$send."','".$note."','".$fileDestination."')";
 		$objQuery = mysqli_query($objCon,$strSQL);
-    echo "<script LANGUAGE='JavaScript'>window.alert('Upload Success');window.location.href='../homework_student.php';</script>";
-
-
-	       
+        echo "<script LANGUAGE='JavaScript'>window.alert('Insert Success');window.location.href='../homework_student.php';</script>";
 
 
 
+
+mysqli_close($objCon);
 ?>

@@ -1,13 +1,21 @@
 <?php
-    session_start();
-?>
-<html>
-    <?php
+if(session_id()===''){
+session_start();
+ 
+}
+include('php/config.php');
     $random = (string)rand(0,999999);
     $_SESSION['captcha'] = $random;
-    ?>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+?>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <script type="text/javascript" src="js/mouse.js">  </script>
+        <script type="text/javascript" src="js/time.js">  </script>
+        <link rel="stylesheet" type="text/css" href="css/themeMax.css">
+        <link rel="stylesheet" href="css/menu.css" type="text/css" />
 <style>
 #randomfield { 
 -webkit-touch-callout: none;
@@ -24,8 +32,34 @@
   background-image: url('http://4.bp.blogspot.com/-EEMSa_GTgIo/UpAgBQaE6-I/AAAAAAAACUE/jdcxZVXelzA/s1600/ca.png');
 }
 </style>
-</head>
-<body onLoad="ChangeCaptcha()">
+    </head>
+  
+    <body onLoad="ChangeCaptcha()">
+        <nav>
+            <div id="tabs" >
+                    
+            </div>
+             <div id="tabs2" >
+                  
+            </div>
+            </nav>
+
+     
+        <div id="container">
+            
+            
+            <div class="closeFloating" >
+             <a onclick="onOffbar()"><button id="textCloseFloating">Close</button></a>
+            </div>
+            
+            <div id="floatingMenu">
+			 <?php include 'php/calendar.php';?> 
+            </div>
+            
+           
+             <article >
+             <div class="content">
+
     
 <script>
 function ChangeCaptcha() {
@@ -48,7 +82,7 @@ if(document.getElementById('CaptchaEnter').value == document.getElementById('ran
 </script>
     
 <form id="form1" method="post" action="save_register.php">
-    <h1><center>Register Form<center></h1>
+    <h1><center>Register Form</center></h1>
     <table width="420" border="0" style="width: 420px" align="center">
         <tbody>
             <tr>
@@ -109,19 +143,42 @@ if(document.getElementById('CaptchaEnter').value == document.getElementById('ran
                 <td> &nbsp;Status</td>
                 <td>
                     <select name="ddlStatus" id="ddlStatus">
-                        <option value="STUDENT">STUDENT</option>
-                        <option value="TEACHER">TEACHER</option>
+                        <option value="STUDENT">Student</option>
+                        <option value="TEACHER">Teacher</option>
                     </select>
                 </td>
             </tr>
         </tbody>
-    <table>     
+        </table>    
 </form>
         <br><br><center><input type="text" id="randomfield" disabled></center><br>
         <center><input id="CaptchaEnter" size="20" maxlength="6" /></center><br>
-        <center><button type="button" onclick="check()">Register</button></center>  
-<form name="form2" action="home.php">
+        <center><button type="button" onclick="check()">Submit</button></center>  
+
+<!--
     <Br><center><button>Go Home</button></center>
 </form>
-</body>
-</html>     
+-->
+                 
+</div>
+
+               </article>
+            
+            
+            <aside >
+                <div id=asidemenu>
+            <?php include 'php/menuleft.php';?>
+                </div>
+           
+            </aside>
+       
+        </div>
+        
+        <footer>
+               <p>Footer</p>
+            </footer>
+
+        
+    </body>    
+
+</html>

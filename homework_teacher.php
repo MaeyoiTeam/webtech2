@@ -75,10 +75,9 @@ include('php/config.php');
                      
 <?php
                      
-$course =$_POST["course"];
-$txt = explode("/",$course);
 
-$strSQL = "SELECT * FROM homework WHERE homework.course_ID='".$txt[0]."' AND homework.sec='".$txt[1]."'";
+
+$strSQL = "SELECT * FROM homework WHERE homework.course_ID='".$_SESSION["course_ID"]."' AND homework.sec='".$_SESSION["sec"]."'";
 
 
 if ($result=mysqli_query($objCon,$strSQL))
@@ -111,7 +110,7 @@ mysqli_free_result($result);
 <?php
 
 echo   "<form  action='create_homework.php' method='post'>";
-echo "<button type='submit' name='course' value='".$txt[0]."/".$txt[1]."'>Create Homework</button></form>";
+echo "<button type='submit' name='course' value='".$_SESSION['course_ID']."/".$_SESSION['sec']."'>Create Homework</button></form>";
 
 ?>
 
@@ -122,7 +121,7 @@ echo "<button type='submit' name='course' value='".$txt[0]."/".$txt[1]."'>Create
             
             <aside >
                 <div id=asidemenu>
-            <?php include 'php/menuleft3.php';?>
+            <?php include 'php/menuleft2.php';?>
                 </div>
            
             </aside>

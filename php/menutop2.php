@@ -9,8 +9,7 @@ if(isset($_SESSION['ID'])){
                     else{
                         $sql ="studentt";   
                     }
-                    echo "<a href='logout.php'";
-					echo ">Log out</a><br>";
+                    echo "<a href='php/logout.php'>Log out</a><br>";
 }
 
 ?>

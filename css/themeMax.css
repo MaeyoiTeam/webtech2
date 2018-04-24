@@ -86,28 +86,24 @@ footer span{
 
 #floatingMenu{
    font-family: sans-serif;
-    background-color:darkgray;
     padding: 5px;;
-    width: 150px;
+    width: 300px;
     height: 500px;
     z-index: 100;
     position: fixed;
     right: 0px;
     top: 30%;
-    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2), 0 0 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 #framefloating{
     font-family: sans-serif;
-    background-color:darkgray;
     padding: 5px;;
-    width: 150px;
+    width: 500px;
     height: 500px;
     z-index: 100;
     position: fixed;
     right: 0px;
     top: 30%;
-    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2), 0 0 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 
@@ -119,9 +115,9 @@ footer span{
     z-index: 100;
     position: fixed;
     right: 0px;
-    background-color: black;
+    background-color: white;
     align-content: center;
-    color:white;
+    color:black;
     font-size: 3px;
     border-radius: 3px;
     bottom: 73%

@@ -1,17 +1,52 @@
-<?php
-session_start();
-?>
 
+<?php
+
+include('php/config.php');
+
+
+?>
 <!DOCTYPE html>
 <html>
-<head>
-<title>Notification Board</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script type="text/javascript" src="js/mouse.js">  </script>
+        <script type="text/javascript" src="js/time.js">  </script>
+        <link rel="stylesheet" type="text/css" href="css/themeMax.css">
+        <link rel="stylesheet" href="css/menu.css" type="text/css" />
+
+    </head>
+    
+    <body >
+        <nav>
+            <div id="tabs" >
+             <?php include 'php/menutop.php';?>
+                    
+            </div>
+             <div id="tabs2" >
+                   <?php include 'php/menutop3.php';?>
+            </div>
+            </nav>
+
+     
+        <div id="container">
+            
+            
+            <div class="closeFloating" >
+             <a onclick="onOffbar()"><button id="textCloseFloating">Close</button></a>
+            </div>
+            
+            <div id="floatingMenu">
+			 <?php include 'php/calendar.php';       ?> 
+            </div>
+            
+           
+             <article >
+             <div class="content">
+             
 <div class="container">
 	<div id="content" align="center">
-		<form action="notifyexec.php" method="post">
+		<form action="notifyxexec.php" method="post">
 		<h1>Notice Board</h1><br> 
 
 		Message<br>
@@ -20,38 +55,38 @@ session_start();
 		</form>
 	</div>
     </div>
+                 
+                 
 <?php
-    include('php/config.php');
     date_default_timezone_set("Asia/Bangkok");
     
     $strSQL = "SELECT * FROM noticemsg ";
-    $showquery = $this->db->query($strSQL);
+    $showquery = $objCon->query($strSQL);
 
-
-    
  ?>
-    <div>
-    <table width="300" border="1">
-  <tr>
-   
-      <th width="198"> <div align="center"><h3>Message</h3></div></th>
-      <th width="198"> <div align="center"><h3>Date-Time</h3></div></th>
-    
-  </tr>
-     <?php
-    $resultshow = array();
-			while($resultshow = mysqli_fetch_array($showquery,MYSQLI_ASSOC)){
-    ?>
-  <tr>
-   
-      <td><div align="center"><?php echo $resultshow["message"];?></div></td>
-      <td><div align="center"><?php echo $resultshow["date_time"];?></div></td>
-</tr>
-<?php } ?>
 
 <?php
 mysqli_close($mysqli);
 ?>
-        </table>
-    </body>
+	 </div>
+              </article>
+            
+            
+            <aside >
+                <div id=asidemenu>
+            <?php include 'php/menuleft2.php';?>
+                </div>
+           
+            </aside>
+       
+        </div>
+        
+        <footer>
+               <p>Footer</p>
+            </footer>
+
+        
+    </body>    
+
 </html>
+

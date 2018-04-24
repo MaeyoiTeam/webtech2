@@ -44,7 +44,7 @@ echo "<script LANGUAGE='JavaScript'>window.alert('Fail');window.location.href='h
         <link rel="stylesheet" type="text/css" href="css/themeMax.css">
         <link rel="stylesheet" href="css/menu.css" type="text/css" />
 <style>       
-    td{border-style: solid;
+    .chair td{border-style: solid;
     border-width: 5px;
     align-content: center;
         border-radius: 20px;

@@ -41,7 +41,7 @@ include('php/config.php');
             </div>
             
             <div id="floatingMenu">
-
+<?php include 'php/calendar.php';?>
             </div>
             
            
@@ -79,6 +79,8 @@ include('php/config.php');
 
 $course =$_POST["course"];
 $txt = explode("/",$course);
+$_SESSION['course_ID']=$txt[0];
+$_SESSION['sec']=$txt[1];
 //echo $txt[0]; //course_ID
 //echo $txt[1]; // sec
 $strSQL = "SELECT course.*,teachert.* FROM course,teachert WHERE course.ID='".$txt[0]."' AND  teachert.ID=course.Teacher_ID";
@@ -113,7 +115,7 @@ mysqli_free_result($result);
                      
 <?php
                      
-$strSQL = "SELECT studentcourse.*,course.*,studentt.* FROM course,studentcourse,studentt WHERE course.ID='".$txt[0]."' AND studentcourse.sec='".$txt[1]."' AND studentcourse.course_ID=course.ID AND studentcourse.studnet_ID=studentt.ID";
+$strSQL = "SELECT studentcourse.*,course.*,studentt.* FROM course,studentcourse,studentt WHERE course.ID='".$txt[0]."' AND studentcourse.sec='".$txt[1]."' AND studentcourse.course_ID=course.ID AND studentcourse.student_ID=studentt.ID";
 
 
 if ($result=mysqli_query($objCon,$strSQL))
@@ -133,21 +135,7 @@ mysqli_free_result($result);
             </tbody>
   </table>
 
-
-<?php
-echo   "<form  action='homework_student.php' method='post'>";
-echo "<button type='submit' name='course' value='".$txt[0]."/".$txt[1]."'>Homework</button></form>";
-echo   "<form  action='stu_selectseat2.php' method='post'>";
-echo "<button type='submit' name='course' value='".$txt[0]."/".$txt[1]."'>Join Course</button></form>";
-
-?>
-
-
-
-
-
-        
-        
+ 
 
                  </div>
 

@@ -1,5 +1,5 @@
 <?php
-if(session_id()==''){
+if(session_id()===''){
 session_start();
  
 }
@@ -42,12 +42,13 @@ include('php/config.php');
            
              <article >
                  <div class="container">
-    <div id="content" align="center">
+ <div id="content" align="center">
 		<h1>Annoucement</h1><br><br>
 		
 
 
 <?php
+    include('config.php');
     date_default_timezone_set("Asia/Bangkok");
     
     $strSQL = "SELECT * FROM noticemsg ";
@@ -60,8 +61,8 @@ include('php/config.php');
     <table width="600" border="1">
   <tr>
    
-      <th width="198"> <div align="center"><h3>Message</h3></div></th>
-      <th width="198"> <div align="center"><h3>Date-Time</h3></div></th>
+      <td width="198"> <div align="center"><h3>Message</h3></div></th>
+      <td width="198"> <div align="center"><h3>Date-Time</h3></div></th>
     
   </tr>
      <?php
@@ -79,7 +80,7 @@ while($resultshow = mysqli_fetch_array($showquery,MYSQLI_ASSOC))
 <?php
 mysqli_close($mysqli);
 ?>
-    </table> 
+    </table>  
     </div>
             </article>
             

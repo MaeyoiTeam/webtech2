@@ -76,10 +76,8 @@ include('php/config.php');
                      
 <?php
                      
-$course =$_POST["course"];
-$txt = explode("/",$course);
 
-$strSQL = "SELECT * FROM homework WHERE homework.course_ID='".$txt[0]."' AND homework.sec='".$txt[1]."'";
+$strSQL = "SELECT * FROM homework WHERE homework.course_ID='".$_SESSION['course_ID']."' AND homework.sec='".$_SESSION['sec']."'";
 
 
 if ($result=mysqli_query($objCon,$strSQL))

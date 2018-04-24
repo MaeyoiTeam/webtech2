@@ -15,21 +15,23 @@
 	}
 	
 #tabs {
-    font: bold 11px/1.5em Verdana;
+    font: bold 30px/1.5em Verdana;
     float: left;
 	width:50%;
-	background:#FFFFFF;
+	background-color:#FFFFFF;
 	font-size:93%;
 	line-height:normal;
+    
 	}
 #tabs2 {
-    font: bold 11px/1.5em Verdana;
+    font: bold 30px/1.5em Verdana;
     float: right;
     left:  50%;
-	width:50%;
-	background:#FFFFFF;
+	width: 50%;
+	background-color:#FFFFFF;
 	font-size:93%;
 	line-height:normal;
+   
 	}
 
 	

@@ -1,0 +1,116 @@
+<css>
+
+<style>
+          input[type=text], select {
+                width: 100%;
+                padding: 12px 20px;
+                margin: 8px 0;
+                display: inline-block;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                box-sizing: border-box;
+            }
+
+input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+    
+    textarea {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+div {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+		body {
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: 600;
+  font-size: 3em;
+}
+
+a.arrow-button {
+  margin: 1em auto;
+  width: 280px;
+  text-align: center;
+  background-color: #eee;
+  padding: 0.5em 0;
+  display: block;
+  color: #333;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all 0.2s;
+  box-shadow: 1px 1px 5px 0px rgba(50, 50, 50, 0.6);
+  border-radius: 8px;
+  &:hover {
+    color: #eee;
+    background-color: #333;
+  }
+}
+
+.arrow-left {
+  &::before {
+    content: '\25c4';
+    padding-right: 0.5em;
+  }
+}
+
+.arrow-right {
+  &::after {
+    content: '\25ba';
+    padding-left: 0.5em;
+  }
+}
+
+.arrow-down {
+  &::after {
+    content: '\25bc';
+    padding-left: 0.5em;
+  }
+}
+.arrow-up {
+  &::after {
+    content: '\25b2';
+    padding-left: 0.5em;
+  }
+}
+			.today
+			{
+				background-color: #e91e63;
+			}
+			.event
+			{
+				background-color : #048E65;
+			}
+			.w3-myfont 
+			{
+			  	font-family: "Comic Sans MS", cursive, sans-serif;
+                font-size: 20px;
+			}
+        
+tablecalendar {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+	</style>
+</css>
+        

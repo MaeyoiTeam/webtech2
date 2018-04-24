@@ -6,7 +6,7 @@ session_start();
 include('php/config.php');  
 $sql="SELECT course.ID,course.course_name,studentcourse.sec
 FROM course,studentcourse
-WHERE course.ID=studentcourse.course_ID AND studentcourse.studnet_ID='".$_SESSION["ID"]."'";
+WHERE course.ID=studentcourse.course_ID AND studentcourse.student_ID='".$_SESSION["ID"]."'";
 $ID = array();
 $x=1;
 if ($result=mysqli_query($objCon,$sql))
@@ -33,7 +33,7 @@ if ($result=mysqli_query($objCon,$sql))
         <link rel="stylesheet" type="text/css" href="css/themeMax.css">
         <link rel="stylesheet" href="css/menu.css" type="text/css" />
 <style>       
-    td{border-style: solid;
+    .chair td{border-style: solid;
     border-width: 5px;
     align-content: center;
         border-radius: 20px;
@@ -76,7 +76,7 @@ setTimeout(function(){
             </div>
             
             <div id="floatingMenu">
-                <p>float</p>
+                <?php include 'php/calendar.php';?>
             </div>
             
            
@@ -139,3 +139,6 @@ echo  "</form></table>";
 
 </html>
 
+<?php
+	mysqli_close($objCon);
+?>

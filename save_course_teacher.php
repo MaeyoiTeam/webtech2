@@ -83,6 +83,8 @@ include('php/config.php');
 
 $course =$_POST["course"];
 $txt = explode("/",$course);
+$_SESSION['course_ID']=$txt[0];
+$_SESSION['sec']=$txt[1];
 //echo $txt[0]; //course_ID
 //echo $txt[1]; // sec
 $strSQL = "SELECT course.*,teachert.* FROM course,teachert WHERE course.ID='".$txt[0]."' AND  teachert.ID=course.Teacher_ID";
@@ -117,7 +119,7 @@ mysqli_free_result($result);
                      
 <?php
                      
-$strSQL = "SELECT studentcourse.*,course.*,studentt.* FROM course,studentcourse,studentt WHERE course.ID='".$txt[0]."' AND studentcourse.sec='".$txt[1]."' AND studentcourse.course_ID=course.ID AND studentcourse.studnet_ID=studentt.ID";
+$strSQL = "SELECT studentcourse.*,course.*,studentt.* FROM course,studentcourse,studentt WHERE course.ID='".$_SESSION['course_ID']."' AND studentcourse.sec='".$_SESSION['sec']."' AND studentcourse.course_ID=course.ID AND studentcourse.student_ID=studentt.ID";
 
 
 if ($result=mysqli_query($objCon,$strSQL))
@@ -136,12 +138,6 @@ mysqli_free_result($result);
 ?>
             </tbody>
   </table>
-<?php
-$course =$_POST["course"];
-$txt = explode("/",$course);
-                     echo   "<form  action='homework_teacher.php' method='post'>";
-                     echo "<button type='submit' name='course' value='".$txt[0]."/".$txt[1]."'>Homework</button></form>";
-?>
 
         
 
@@ -152,7 +148,7 @@ $txt = explode("/",$course);
             
             <aside >
                 <div id=asidemenu>
-            <?php include 'php/menuleft3.php';?>
+            <?php include 'php/menuleft2.php';?>
                 </div>
            
             </aside>
@@ -167,3 +163,7 @@ $txt = explode("/",$course);
     </body>    
 
 </html>
+
+<?php
+	mysqli_close($objCon);
+?>

@@ -1,18 +1,57 @@
 <?php
-//echo"<html> meta http-equiv="Content-Type" content="text/html; charset=utf-8" />";
-	include("php/config.php");
+if(session_id()===''){
+session_start();
+ 
+}
+include('php/config.php');
+
+?>
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <script type="text/javascript" src="js/mouse.js">  </script>
+        <script type="text/javascript" src="js/time.js">  </script>
+        <link rel="stylesheet" type="text/css" href="css/themeMax.css">
+        <link rel="stylesheet" href="css/menu.css" type="text/css" />
+
+    </head>
+    
+    <body >
+        <nav>
+            <div id="tabs" >
+             <?php include 'php/menutop.php';?>
+                    
+            </div>
+             <div id="tabs2" >
+                   <?php include 'php/menutop3.php';?>
+            </div>
+            </nav>
+
+     
+        <div id="container">
+            
+            
+            <div class="closeFloating" >
+             <a onclick="onOffbar()"><button id="textCloseFloating">Close</button></a>
+            </div>
+            
+            <div id="floatingMenu">
+			 <?php include 'php/calendar.php';?> 
+            </div>
+            
+           
+             <article >
+             <div class="content">
+             
+                 <?php
+
+$strSQL = "SELECT coursedate.date_date FROM coursedate WHERE coursedate.course_ID = '".$_SESSION['course_ID']."' AND coursedate.sec = '".$_SESSION['sec']."'";
 
 
-$course =$_POST["course"];
-$txt = explode("/",$course);
-//echo $txt[0]; //course_ID
-//echo $txt[1]; // sec
 
-$strSQL = "SELECT coursedate.date_date FROM coursedate WHERE coursedate.course_ID = '".txt[0]."' AND coursedate.sec = '".txt[1]."'";
-
-
-
-$query = "SELECT * FROM seat WHERE seat.course_ID='".$txt[0]."'";
+$query = "SELECT * FROM seat WHERE seat.course_ID='".$_SESSION['course_ID']."'";
 $tresult = $objCon->query($query);
 
 
@@ -24,7 +63,6 @@ if (!$tresult) {
     exit();
 }
 $multipleseat = $success_seat["seat_row"]*$success_seat["seat_col"];
-echo "$multipleseat<br>";
 $row = $success_seat["seat_row"];
 $column = $success_seat["seat_col"];
 $seat = $success_seat["seat_num"];
@@ -33,7 +71,7 @@ $l = 1;
 $n = 1;    
     
 echo "<form method='post' action='save_seat.php' name='radio_selectseat'>";     
-echo"<center><table width='1000' height='95' border='2' cellspacing='4' cellpadding='10'>";
+echo"<center><table width='100%' height='95' border='2' cellspacing='4' cellpadding='10'>";
     for($i=1 ; $i<=$row ; $i++){
         echo"<tr>";
         for($j=1 ; $j<=$column ; $j++){
@@ -56,10 +94,9 @@ echo"<center><table width='1000' height='95' border='2' cellspacing='4' cellpadd
         echo"</tr>";
     }
       echo"</table></center>";
-    echo "<select name='subject'>" ?>
-<?php
+    echo "<select name='subject'>";
     
-    $subject = "SELECT coursedate.date_date FROM coursedate WHERE coursedate.course_ID = '".$txt[0]."' AND coursedate.sec = '".$txt[1]."'";
+    $subject = "SELECT coursedate.date_date FROM coursedate WHERE coursedate.course_ID = '".$_SESSION['course_ID']."' AND coursedate.sec = '".$_SESSION['sec']."'";
     if($result=mysqli_query($objCon,$subject)){
   // Fetch one and one row
   while ($row=mysqli_fetch_row($result))
@@ -70,15 +107,41 @@ echo"<center><table width='1000' height='95' border='2' cellspacing='4' cellpadd
   mysqli_free_result($result);
 }
 echo "</select>";
-?>    
-<?php
-    echo "<button type='submit' name='course' value='".$txt[0]."/".$txt[1]."'>Submit</button>";
+
+    echo "<button type='submit' name='course' value='".$_SESSION['course_ID']."/".$_SESSION['sec']."'>Submit</button>";
     echo"<br><center><button type='button' onclick='history.go(-1);'>Back </button></center>";
 echo"</form>";
         
 
 }	
 
+
+?>
+                 
+                 
+                 
+                 </div>
+              </article>
+            
+            
+            <aside >
+            <div id=asidemenu>
+            <?php include 'php/menuleft2.php';?>
+                </div>
+           
+            </aside>
+       
+        </div>
+        
+        <footer>
+               <p>Footer</p>
+            </footer>
+
+        
+    </body>    
+
+</html>
+
+<?php
 	mysqli_close($objCon); 
 ?>
-

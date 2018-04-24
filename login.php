@@ -43,7 +43,7 @@ include('php/config.php');
     <body onLoad="ChangeCaptcha()">
         <nav>
             <div id="tabs" >
-             <?php include 'php/menutop.php';?>
+             
                     
             </div>
              <div id="tabs2" >
@@ -55,13 +55,7 @@ include('php/config.php');
         <div id="container">
             
             
-            <div class="closeFloating" >
-             <a onclick="onOffbar()"><button id="textCloseFloating">Close</button></a>
-            </div>
-            
-            <div id="floatingMenu">
-
-            </div>
+           
             
            
              <article >
@@ -88,17 +82,17 @@ if(document.getElementById('CaptchaEnter').value == document.getElementById('ran
 </script>
                  <form id="form1" method="post" action="check_login.php">
                      <h1 align="center">Login<br></h1>
-  <table style="width: 300px" align="center">
+  <table style="width: 1100px" align="center">
     <tbody>
       <tr>
-        <td> &nbsp;Username</td>
-        <td>
+        <td align="right"> &nbsp;Username</td>
+        <td align="left">
           <input name="txtUsername" type="text" id="txtUsername">
         </td>
       </tr>
       <tr>
-        <td> &nbsp;Password</td>
-        <td><input name="txtPassword" type="password" id="txtPassword">
+        <td align="right"> &nbsp;Password</td>
+        <td align="left"><input name="txtPassword" type="password" id="txtPassword">
         </td>
       </tr>
     </tbody>
@@ -108,8 +102,8 @@ if(document.getElementById('CaptchaEnter').value == document.getElementById('ran
     <center><input type="text" id="randomfield" disabled></center><br>
     <center><input id="CaptchaEnter" size="20" maxlength="6" /></center><br>
     <center><button type="button" onclick="check()">Log in</button></center> 
-<form name="form2" action="home.php"> 
-    <br><center><button>Go Home</button></center>
+<form name="form2" action="register.php"> 
+    <br><center><button>Register</button></center>
 </form>
                  
                  
@@ -119,9 +113,8 @@ if(document.getElementById('CaptchaEnter').value == document.getElementById('ran
             
             <aside >
                 <div id=asidemenu>
-            <?php include 'php/menuleft2.php';?>
+            <?php include 'php/menuleft.php';?>
                 </div>
-           
             </aside>
        
         </div>
