@@ -1,19 +1,22 @@
-
 <?php
-ob_start();
+if(session_id()===''){
 session_start();
-        include("php/config.php");
+ 
+}
+include('php/config.php');
+
 if(isset($_SESSION['ID'])){
 		
 
-	if($_SESSION['Status'] != "Teacher")
-	{
+	if($_SESSION['Status'] != "Teacher"){
 		exit();
 	}
 }
 else{
 	header("location:index.php");
-	}?>
+	}
+
+?>
 <!DOCTYPE html>
 <html>
     <head>
