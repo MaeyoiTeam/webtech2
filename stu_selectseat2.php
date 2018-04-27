@@ -46,8 +46,21 @@ include('php/config.php');
              <div class="content">
              
                  <?php
-
-$strSQL = "SELECT coursedate.date_date FROM coursedate WHERE coursedate.course_ID = '".$_SESSION['course_ID']."' AND coursedate.sec = '".$_SESSION['sec']."'";
+                 $strSQL = "SELECT course_ID FROM seat WHERE course_ID = '".$_SESSION['course_ID']."'";
+                 $objQuery = mysqli_query($objCon,$strSQL);
+                 $objResult = mysqli_fetch_array($objQuery);
+                 if(!$objResult){
+                     
+                     echo"<center><H1>attendance Check!!!!!!</H1></center>";
+                     
+                     
+                     echo "<form method='post' action='save_seat.php' name='radio_selectseat'>";   
+                     echo "<center><button type='submit' name='course' value='".$_SESSION['course_ID']."/".$_SESSION['sec']."/In Class'>Submit</button></center>";
+                    echo"<br><center><button type='button' onclick='history.go(-1);'>Back </button></center>";
+                    echo"</form>";
+                     
+                 }else{
+                    $strSQL = "SELECT coursedate.date_date FROM coursedate WHERE coursedate.course_ID = '".$_SESSION['course_ID']."' AND coursedate.sec = '".$_SESSION['sec']."'";
 
 
 
@@ -113,12 +126,13 @@ echo "</select>";
 echo"</form>";
         
 
-}	
-
-
+} 
+                     
+                     
+}
+                 
 ?>
-                 
-                 
+          
                  
                  </div>
               </article>

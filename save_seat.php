@@ -11,6 +11,8 @@
 	}*/
 	if(isset($_POST['RG1'])){
 	$stu_seat = trim($_POST['RG1']);
+    }else if(isset($txt[2])){
+	$stu_seat = $txt[2];
     }else{
 		echo "<script type='text/javascript'>alert('กรุณาเลือกที่นั่ง!');</script>";
         echo "<script type='text/javascript'>window.history.go(-1);</script>";
@@ -37,8 +39,13 @@
         $strSQL = "UPDATE room SET Seat='$stu_seat', active ='present' WHERE student_ID = '".$ID."' AND corusedate_ID = '".$row[0]."'";
 	   //$objQuery = mysqli_query($objCon,$strSQL);
          //   if($objQuery){
+                if(isset($txt[2])){
+	               echo "<script type='text/javascript'>alert('You are In Class');</script>";
+                echo "<script type='text/javascript'>window.location='course_student.php';</script>";
+                    }else{
                 echo "<script type='text/javascript'>alert('Your Seat is $stu_seat $row[0]');</script>";
-                echo "<script type='text/javascript'>window.location='course.php';</script>";
+                echo "<script type='text/javascript'>window.location='course_student.php';</script>";
+                }
          /*   }
             else{
                 echo "<script type='text/javascript'>alert('Can not Join!');</script>";
