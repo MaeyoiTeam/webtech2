@@ -12,7 +12,8 @@ include('php/config.php');
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta charset="UTF-8">
+        
         <script type="text/javascript" src="js/mouse.js">  </script>
         <script type="text/javascript" src="js/time.js">  </script>
         <link rel="stylesheet" type="text/css" href="css/themeMax.css">
@@ -27,7 +28,7 @@ include('php/config.php');
                     
             </div>
              <div id="tabs2" >
-                   <?php include 'php/menutop3.php';?>
+                    
             </div>
             </nav>
 
@@ -40,80 +41,51 @@ include('php/config.php');
             </div>
             
             <div id="floatingMenu">
-			 <?php include 'php/calendar.php';?> 
+				 <?php include 'php/calendar.php';?> 
             </div>
             
            
              <article >
                  <div class="content">
+                     <h1>Create Lesson</h1>
+
+ <?php
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-    <table border="1" >
-    <tbody>
-        <tr>
-        <td> &nbsp;homework name </td>
-            <td> &nbsp;note</td>
-            <td> &nbsp;file</td>
-            <td> &nbsp;start</td>
-            <td> &nbsp;finish</td>
-            <td> &nbsp;time</td>
-            <td> &nbsp;Send</td>
-            
-      </tr>
-        <br>
-                     
-<?php
-                     
-
-$strSQL = "SELECT * FROM homework WHERE homework.course_ID='".$_SESSION['course_ID']."' AND homework.sec='".$_SESSION['sec']."'";
-
-
-if ($result=mysqli_query($objCon,$strSQL))
-  {
-  while ($row=mysqli_fetch_row($result))
-    {
-      echo "<tr>";
-      echo "<td>".$row[1]."</td>";//name
-      echo "<td>".$row[2]."</td>";//note
-      echo "<td>";
-      if($row[3]!=null){
-
-          echo "<a href='webtech2/".$row[3]."'><img src='images/icon/file.png'></a>";
-      }
-      
-      echo "</td>";
-
-      echo "<td>".$row[6]."</td>";
-      echo "<td>".$row[7]."</td>";
-      echo "<td>".$row[8]."</td>";
-      echo "<td>";
-      echo   "<form  action='homework_student_send.php' method='post'>";
-      echo "<button type='submit' name='homeworkid' value='".$row[0]."'>Send</button></form>";
-      echo "</td>";
-
-      echo "</tr>";
-    }
-}
-mysqli_free_result($result);
-
+$course =$_POST["course"];
+$txt = explode("/",$course);
+echo "Course ID :".$txt[0]."<br>"; //course_ID
+echo "Sec :".$txt[1]; // sec
 
 
 ?>
-            </tbody>
-  </table>
 
+     
+                     <form action='php/save_lesson.php' method='post' enctype="multipart/form-data">
+
+                         <span >name</span>
+                         <span style="padding-left: 6em">note</span>
+                         <span style="padding-left: 13.2em">date</span>
+                         <span style="padding-left: 5.2em">time</span>
+<br>
+<input type="text" name="name"> 
+<input type="text" name="note" style="padding-bottom: 6.5em; padding-right: 10em">
+
+<br>
+<input type="file" name="file" >
+<?php
+                    echo    "<button type='submit' name='course' value='".$txt[0]."/".$txt[1]."'>Submit</button></form>";
+?>
+
+
+
+
+
+
+
+</form>    
+               
+                
                  </div>
 
               </article>

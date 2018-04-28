@@ -86,7 +86,13 @@ if ($result=mysqli_query($objCon,$strSQL))
 
       echo "<td>".$row[1]."</td>";
       echo "<td>".$row[2]."</td>";
-      echo "<td><a href='webtech2-master/".$row[3]."'><img src='images/icon/file.png'></a></td>";
+            echo "<td>";
+      if($row[3]!=null){
+
+          echo "<a href='webtech2/".$row[3]."'><img src='images/icon/file.png'></a>";
+      }
+      
+      echo "</td>";
       echo "<td>".$row[6]."</td>";
       echo "<td>".$row[7]."</td>";
       echo "<td>".$row[8]."</td>";

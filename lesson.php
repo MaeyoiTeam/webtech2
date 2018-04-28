@@ -63,7 +63,7 @@ include('php/config.php');
     <table border="1" >
     <tbody>
         <tr>
-        <td> &nbsp;homework name </td>
+        <td> &nbsp;lesson name </td>
             <td> &nbsp;note</td>
             <td> &nbsp;file</td>
             
@@ -74,7 +74,7 @@ include('php/config.php');
                      
 
 
-$strSQL = "SELECT * FROM homework WHERE homework.course_ID='".$_SESSION["course_ID"]."' AND homework.sec='".$_SESSION["sec"]."'";
+$strSQL = "SELECT * FROM lesson WHERE lesson.course_ID='".$_SESSION["course_ID"]."' AND lesson.sec='".$_SESSION["sec"]."'";
 
 
 if ($result=mysqli_query($objCon,$strSQL))
@@ -85,7 +85,13 @@ if ($result=mysqli_query($objCon,$strSQL))
 
       echo "<td>".$row[1]."</td>";
       echo "<td>".$row[2]."</td>";
-      echo "<td><a href='webtech2-master/".$row[3]."'><img src='images/icon/file.png'></a></td>";
+      echo "<td>";
+      if($row[3]!=null){
+
+          echo "<a href='webtech2/".$row[3]."'><img src='images/icon/file.png'></a>";
+      }
+      
+      echo "</td>";
       echo "</tr>";
     }
 }

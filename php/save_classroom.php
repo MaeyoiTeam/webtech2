@@ -17,13 +17,13 @@ session_start();
 
 
     $sql="SELECT studentcourse.student_ID FROM studentcourse,studentcoursedate WHERE studentcourse.course_ID='".$_SESSION['course_ID']."'  AND studentcoursedate.sec= '".$_SESSION['sec']."' AND studentcoursedate.date_date= '".$date."' AND studentcourse.ID=studentcoursedate.studentcourse_ID ";
-
+         
     if ($result=mysqli_query($objCon,$sql)){
         $num1=0;
     while ($row1=mysqli_fetch_row($result))
     {
         $num1++;
-    $strSQL2 = "INSERT INTO room ( corusedate_ID, num1,student_ID) VALUES ( '".$row[0]."', '".$num1."','".$row1[0]."')";
+    $strSQL2 = "INSERT INTO room ( coursedate_ID, num1,student_ID) VALUES ( '".$row[0]."', '".$num1."','".$row1[0]."')";
 		$objQuery2 = mysqli_query($objCon,$strSQL2);
     }
     mysqli_free_result($result);

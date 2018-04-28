@@ -85,7 +85,13 @@ if ($result=mysqli_query($objCon,$strSQL))
       echo "<td>".$row[2]."</td>";//student id
       echo "<td>".$row[3]."</td>";//date send
       echo "<td>".$row[4]."</td>";//data
-      echo "<td><a href='webtech2-master/".$row[5]."'><img src='images/icon/file.png'></a></td>";
+            echo "<td>";
+      if($row[3]!=null){
+
+          echo "<a href='webtech2/".$row[3]."'><img src='images/icon/file.png'></a>";
+      }
+      
+      echo "</td>";
       echo "</tr>";
     }
 }

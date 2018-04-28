@@ -26,7 +26,7 @@ $start = date('Y-m-d');
         if($fileError === 0){
             if($fileSize < 10000000){
                 $fileNameNew = uniqid('',true).".".$fileActualExt;
-                $fileDestination ='../images/uploads/homework/'.$fileNameNew;
+                $fileDestination ='../images/uploads/lesson/'.$fileNameNew;
                 move_uploaded_file($fileTmpName,$fileDestination);
             }else{
                 echo "Your file is too big!(Limit 10mb)";
@@ -40,15 +40,15 @@ $start = date('Y-m-d');
     }
 
 
-$strSQL = "INSERT INTO homework (ID,name,note,file,course_ID,sec,date_start,date_finish,time_finish) VALUES (null,'".$name."','".$note."','".$fileDestination."', '".$txt[0]."' , '".$txt[1]."' , '".$start."','".$finish."','".$time."')";
+$strSQL = "INSERT INTO lesson (ID,name,note,file,course_ID,sec,date) VALUES (null,'".$name."','".$note."','".$fileDestination."', '".$txt[0]."' , '".$txt[1]."' , '".$start."')";
 		$objQuery = mysqli_query($objCon,$strSQL);
-        $objResult = mysqli_fetch_array($objQuery);
-//โคตรชิบหาย ตรงเก็บข้อมูลให้ตรงกับ date ที่มี  
 if($objQuery){
     echo "<script LANGUAGE='JavaScript'>window.alert('Upload Success');window.location.href='../course_teacher.php';</script>";
 }
 else{
 echo "<script LANGUAGE='JavaScript'>window.alert('Upload Fail');window.location.href='../course_teacher.php';</script>";
 }
-//TODO : ถ้ามีปัญหา ให้ไปสร้างโฟลเดอร์homework ใน uploads เปิด permissionด้วย
+//TODO : ถ้ามีปัญหา ให้ไปสร้าง โฟลเดอร์ lesson ใน uploads เปิด permissionด้วย
+
 ?>
+
