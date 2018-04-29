@@ -16,7 +16,7 @@
     $Phone = trim($_POST['txtPhone']);
     $Mail = trim($_POST['txtMail']);
     $Status = $_POST['ddlStatus'];
-    include("php/   config.php");
+    include("php/config.php");
     if($ID == "")
     {
         echo "<script type='text/javascript'>alert('Please input ID!');</script>";
@@ -119,7 +119,7 @@
             $objQuery = mysqli_query($objCon,$strSQL);
     
         echo "<script type='text/javascript'>alert('Registered!');</script>";
-        echo "<script type='text/javascript'>window.location='login.php';</script>";
+        //echo "<script type='text/javascript'>window.location='login.php';</script>";
     }
     
     $strSQL = "SELECT ID,Username FROM member WHERE ID = '".$ID."' && Username = '".$Username."'";
