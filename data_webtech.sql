@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: mysql56
--- Generation Time: Apr 27, 2018 at 10:18 AM
+-- Generation Time: Apr 29, 2018 at 08:07 AM
 -- Server version: 5.6.33
 -- PHP Version: 5.6.26
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `basnamfon_basnamfon`
+-- Database: `jakapatb_59010187`
 --
 
 -- --------------------------------------------------------
@@ -37,7 +37,7 @@ CREATE TABLE `course` (
 -- Dumping data for table `course`
 --
 
-INSERT INTO `course` (`ID`, `course_name`, `Credit`, `Teacher_ID`) VALUES
+REPLACE INTO `course` (`ID`, `course_name`, `Credit`, `Teacher_ID`) VALUES
 (1236052, 'Telecom', 3, NULL),
 (1236053, 'Coding', 3, NULL),
 (1236054, 'Database', 3, 90000001),
@@ -66,7 +66,7 @@ CREATE TABLE `coursedate` (
 -- Dumping data for table `coursedate`
 --
 
-INSERT INTO `coursedate` (`ID`, `course_ID`, `sec`, `date_date`, `daytime_ID`, `active`, `current_start`, `breaktime`, `current_finish`, `duration`) VALUES
+REPLACE INTO `coursedate` (`ID`, `course_ID`, `sec`, `date_date`, `daytime_ID`, `active`, `current_start`, `breaktime`, `current_finish`, `duration`) VALUES
 (180001, 1236055, 21, '2018-04-18', 1, 'off', '00:00:00', '00:00:00', '00:00:00', '00:00:00'),
 (180002, 1236054, 21, '2018-04-18', 2, 'wait', '00:00:00', '00:00:00', '00:00:00', '00:00:00'),
 (180003, 1236052, 21, '2018-04-19', 1, 'off', '00:00:00', '00:00:00', '00:00:00', '00:00:00'),
@@ -98,7 +98,7 @@ CREATE TABLE `datedate` (
 -- Dumping data for table `datedate`
 --
 
-INSERT INTO `datedate` (`ID`) VALUES
+REPLACE INTO `datedate` (`ID`) VALUES
 ('2018-04-18'),
 ('2018-04-19'),
 ('2018-04-25'),
@@ -120,7 +120,7 @@ CREATE TABLE `daytime` (
 -- Dumping data for table `daytime`
 --
 
-INSERT INTO `daytime` (`ID`, `start`, `finish`) VALUES
+REPLACE INTO `daytime` (`ID`, `start`, `finish`) VALUES
 (1, '09:00:00', '12:00:00'),
 (2, '13:00:00', '16:00:00'),
 (3, '17:30:00', '20:30:00');
@@ -143,7 +143,7 @@ CREATE TABLE `eventcalendar` (
 -- Dumping data for table `eventcalendar`
 --
 
-INSERT INTO `eventcalendar` (`ID`, `Title`, `Detail`, `eventDate`, `dateAdded`) VALUES
+REPLACE INTO `eventcalendar` (`ID`, `Title`, `Detail`, `eventDate`, `dateAdded`) VALUES
 (143, 'ต', 'ค', '4/23/2018', '2018-04-22'),
 (144, 'ไ', 'ไ', '4/23/2018', '2018-04-22'),
 (196, 'wwwwwwwwwwwwwwwwwww', 'fre', '4/23/2018', '2018-04-23');
@@ -170,7 +170,7 @@ CREATE TABLE `homework` (
 -- Dumping data for table `homework`
 --
 
-INSERT INTO `homework` (`ID`, `name`, `note`, `file`, `course_ID`, `sec`, `date_start`, `date_finish`, `time_finish`) VALUES
+REPLACE INTO `homework` (`ID`, `name`, `note`, `file`, `course_ID`, `sec`, `date_start`, `date_finish`, `time_finish`) VALUES
 (16, 'บทที่1 Database', 'การออกแบบฐานข้อมูล', 0x2e2e2f696d616765732f75706c6f6164732f35616464616234353938336161312e36373733323933342e706466, 1236054, 21, '2018-04-23', '2018-01-29', '16:00:00');
 
 -- --------------------------------------------------------
@@ -181,11 +181,12 @@ INSERT INTO `homework` (`ID`, `name`, `note`, `file`, `course_ID`, `sec`, `date_
 
 CREATE TABLE `lesson` (
   `ID` int(11) NOT NULL,
-  `name` text NOT NULL,
-  `note` text NOT NULL,
+  `name` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `note` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `file` longblob NOT NULL,
   `course_ID` int(11) NOT NULL,
-  `sec` int(11) NOT NULL
+  `sec` int(11) NOT NULL,
+  `date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -206,7 +207,7 @@ CREATE TABLE `member` (
 -- Dumping data for table `member`
 --
 
-INSERT INTO `member` (`ID`, `Username`, `Password`, `Active`, `Status`) VALUES
+REPLACE INTO `member` (`ID`, `Username`, `Password`, `Active`, `Status`) VALUES
 (123, 'ku', 'ku', 0, 'Student'),
 (59010111, 'kuy', 'kuy', 0, 'Student'),
 (59010126, 'ballkitt', '1', 0, 'STUDENT'),
@@ -245,7 +246,7 @@ CREATE TABLE `noticemsg` (
 -- Dumping data for table `noticemsg`
 --
 
-INSERT INTO `noticemsg` (`id`, `Teacher_ID`, `message`, `date_time`) VALUES
+REPLACE INTO `noticemsg` (`id`, `Teacher_ID`, `message`, `date_time`) VALUES
 (80, 90000001, 'ขอย้ายวันเรียนวิชาdatabaseเป็นวันที่\r\n25/04/2561 นะจ๊ะ', '2018-04-23 00:00:00');
 
 -- --------------------------------------------------------
@@ -266,7 +267,7 @@ CREATE TABLE `reply` (
 -- Dumping data for table `reply`
 --
 
-INSERT INTO `reply` (`ReplyID`, `QuestionID`, `CreateDate`, `Details`, `Name`) VALUES
+REPLACE INTO `reply` (`ReplyID`, `QuestionID`, `CreateDate`, `Details`, `Name`) VALUES
 (00001, 00001, '2018-04-17 13:14:04', 'sfasfsadfsafsdafw', 'wedfassfwerwe'),
 (00002, 00001, '2018-04-17 20:16:43', 'sfasfsadfsafsdafw', 'wedfassfwerwe'),
 (00003, 00001, '2018-04-17 20:18:13', 'GUYJ', 'JKGG'),
@@ -302,12 +303,26 @@ INSERT INTO `reply` (`ReplyID`, `QuestionID`, `CreateDate`, `Details`, `Name`) V
 
 CREATE TABLE `room` (
   `ID` int(11) NOT NULL,
-  `corusedate_ID` int(11) DEFAULT NULL,
+  `coursedate_ID` int(11) DEFAULT NULL,
   `num1` int(3) NOT NULL,
   `active` enum('wait','present','Late','miss') CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT 'wait',
   `student_ID` int(11) DEFAULT NULL,
-  `Seat` varchar(7) DEFAULT NULL
+  `Group` varchar(3) DEFAULT NULL,
+  `Seat` varchar(3) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `room`
+--
+
+REPLACE INTO `room` (`ID`, `coursedate_ID`, `num1`, `active`, `student_ID`, `Group`, `Seat`) VALUES
+(1031, 180010, 1, 'wait', 59010164, NULL, NULL),
+(1032, 180010, 2, 'wait', 59010187, NULL, NULL),
+(1033, 180010, 3, 'wait', 59010203, NULL, NULL),
+(1034, 180010, 4, 'wait', 59010205, NULL, NULL),
+(1035, 180010, 5, 'wait', 59010249, NULL, NULL),
+(1036, 180010, 6, 'wait', 59010386, NULL, NULL),
+(1037, 180010, 7, 'wait', 59010697, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -327,7 +342,7 @@ CREATE TABLE `seat` (
 -- Dumping data for table `seat`
 --
 
-INSERT INTO `seat` (`ID`, `course_ID`, `seat_row`, `seat_col`, `seat_num`) VALUES
+REPLACE INTO `seat` (`ID`, `course_ID`, `seat_row`, `seat_col`, `seat_num`) VALUES
 (2, 1236054, 3, 3, 5),
 (3, 1236053, 4, 4, 4),
 (4, 1236055, 4, 4, 6),
@@ -347,7 +362,7 @@ CREATE TABLE `sec` (
 -- Dumping data for table `sec`
 --
 
-INSERT INTO `sec` (`ID`) VALUES
+REPLACE INTO `sec` (`ID`) VALUES
 (21),
 (22);
 
@@ -368,7 +383,7 @@ CREATE TABLE `studentcourse` (
 -- Dumping data for table `studentcourse`
 --
 
-INSERT INTO `studentcourse` (`ID`, `course_ID`, `student_ID`, `sec`) VALUES
+REPLACE INTO `studentcourse` (`ID`, `course_ID`, `student_ID`, `sec`) VALUES
 (1, 1236052, 59010164, 21),
 (2, 1236052, 59010187, 21),
 (3, 1236052, 59010203, 21),
@@ -443,7 +458,7 @@ CREATE TABLE `studentcoursedate` (
 -- Dumping data for table `studentcoursedate`
 --
 
-INSERT INTO `studentcoursedate` (`ID`, `sec`, `studentcourse_ID`, `date_date`) VALUES
+REPLACE INTO `studentcoursedate` (`ID`, `sec`, `studentcourse_ID`, `date_date`) VALUES
 (1, 21, 1, '2018-04-19'),
 (2, 21, 1, '2018-04-26'),
 (3, 21, 2, '2018-04-26'),
@@ -503,7 +518,7 @@ INSERT INTO `studentcoursedate` (`ID`, `sec`, `studentcourse_ID`, `date_date`) V
 (57, 21, 29, '2018-04-25'),
 (58, 21, 29, '2018-04-18'),
 (59, 21, 30, '2018-04-25'),
-(60, 22, 30, '2018-04-18'),
+(60, 21, 30, '2018-04-18'),
 (61, 21, 31, '2018-04-18'),
 (62, 21, 31, '2018-04-25'),
 (63, 21, 32, '2018-04-25'),
@@ -572,13 +587,6 @@ CREATE TABLE `studenthomework` (
   `file` longblob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Dumping data for table `studenthomework`
---
-
-INSERT INTO `studenthomework` (`ID`, `homework_ID`, `student_ID`, `date_send`, `data`, `file`) VALUES
-(15, 16, 59010187, '2018-04-26', 'Hi', '');
-
 -- --------------------------------------------------------
 
 --
@@ -601,7 +609,7 @@ CREATE TABLE `studentt` (
 -- Dumping data for table `studentt`
 --
 
-INSERT INTO `studentt` (`ID`, `Fname`, `Lname`, `Faculty`, `Major`, `Birthdate`, `Gender`, `Phone`, `Email`) VALUES
+REPLACE INTO `studentt` (`ID`, `Fname`, `Lname`, `Faculty`, `Major`, `Birthdate`, `Gender`, `Phone`, `Email`) VALUES
 (59010164, 'Kanutsanun ', 'Nithipanich', 'Engineering', 'Information Engineering', '1997-08-28', 'Male', '094-291570', '59010164@kmitl.ac.th'),
 (59010187, 'Jakkapat ', 'Boonroj', 'Engineering', 'Information Engineering', '1997-01-19', 'Male', '087-7021640', '59010187@kmitl.ac.th'),
 (59010203, 'Jirapat', 'Sirasri', 'Engineering', 'Information Engineering', '1998-02-15', 'Male', '0999999999', '59010203@kmitl.ac.th'),
@@ -639,7 +647,7 @@ CREATE TABLE `teachert` (
 -- Dumping data for table `teachert`
 --
 
-INSERT INTO `teachert` (`ID`, `Fname`, `Lname`, `Faculty`, `Major`, `Birthdate`, `Gender`, `Phone`, `Email`) VALUES
+REPLACE INTO `teachert` (`ID`, `Fname`, `Lname`, `Faculty`, `Major`, `Birthdate`, `Gender`, `Phone`, `Email`) VALUES
 (90000001, 'sutheera', ' puntheeranurak', 'Engineeing', 'information Engineeing', NULL, 'Female', NULL, NULL);
 
 -- --------------------------------------------------------
@@ -662,7 +670,7 @@ CREATE TABLE `webboard` (
 -- Dumping data for table `webboard`
 --
 
-INSERT INTO `webboard` (`QuestionID`, `CreateDate`, `Question`, `Details`, `Name`, `View`, `Reply`) VALUES
+REPLACE INTO `webboard` (`QuestionID`, `CreateDate`, `Question`, `Details`, `Name`, `View`, `Reply`) VALUES
 (00005, '2018-04-17 20:35:02', 'à¸­à¸¢à¸²à¸à¸à¸´à¸™à¸‚à¹‰à¸²à¸§à¹€à¸¢à¹‡à¸™ à¸•à¹‰à¸­à¸‡à¹„à¸›à¸—à¸µà¹ˆà¹„à¸«à¸™à¸­à¹ˆà¸°', 'à¸«à¸´à¸§à¹à¸¥à¹‰à¸§', 'à¸¥à¸¹à¸à¸šà¸²à¸ªà¸‹à¹ˆà¸²à¸ªà¹Œ', 15, 2),
 (00004, '2018-04-17 20:30:36', '1', 'Hello Namfon', '55+', 25, 6),
 (00006, '2018-04-17 23:51:25', 'à¸­à¸¢à¸²à¸à¹„à¸”à¹‰ A à¸•à¹‰à¸­à¸‡à¸—à¸³à¸¢à¸±à¸‡à¹„à¸‡', 'T_T', 'à¹„à¸¡à¹ˆà¸›à¸£à¸°à¸ªà¸‡à¸„à¹Œà¸­à¸­à¸à¸™à¸²à¸¡', 26, 2),
@@ -754,7 +762,7 @@ ALTER TABLE `reply`
 --
 ALTER TABLE `room`
   ADD PRIMARY KEY (`ID`),
-  ADD KEY `corusedate_ID` (`corusedate_ID`,`student_ID`),
+  ADD KEY `corusedate_ID` (`coursedate_ID`,`student_ID`),
   ADD KEY `student_ID` (`student_ID`);
 
 --
@@ -825,12 +833,12 @@ ALTER TABLE `webboard`
 -- AUTO_INCREMENT for table `homework`
 --
 ALTER TABLE `homework`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT for table `lesson`
 --
 ALTER TABLE `lesson`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `noticemsg`
 --
@@ -845,7 +853,7 @@ ALTER TABLE `reply`
 -- AUTO_INCREMENT for table `room`
 --
 ALTER TABLE `room`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1031;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1038;
 --
 -- AUTO_INCREMENT for table `seat`
 --
@@ -920,7 +928,7 @@ ALTER TABLE `noticemsg`
 --
 ALTER TABLE `room`
   ADD CONSTRAINT `room_ibfk_1` FOREIGN KEY (`student_ID`) REFERENCES `studentt` (`ID`),
-  ADD CONSTRAINT `room_ibfk_2` FOREIGN KEY (`corusedate_ID`) REFERENCES `coursedate` (`ID`);
+  ADD CONSTRAINT `room_ibfk_2` FOREIGN KEY (`coursedate_ID`) REFERENCES `coursedate` (`ID`);
 
 --
 -- Constraints for table `seat`
