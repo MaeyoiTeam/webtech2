@@ -49,9 +49,9 @@ include('php/config.php');
              <article >
                   <div class="content">
                       
-            <h1>Welcome to Student Swap Class!</h1> <br>
+            <h1>Welcome to Teacher Swap Class!</h1> <br>
 
-            <form name="num" method="post" action="php/save_swap.php">
+            <form name="num" method="post" action="php/save_teacherswap.php">
                     
                      Date :<select name='date'><?php $start = date('Y-m-d'); $date = "SELECT coursedate.date_date FROM coursedate WHERE coursedate.sec='".$_SESSION["sec"]."'
                      AND coursedate.course_ID = '".$_SESSION["course_ID"]."' AND coursedate.date_date >= '".$start."'";
