@@ -49,7 +49,7 @@
                     
                 $strSQL = "UPDATE room SET Seat='".$sit[1]."' , room.Group ='".$sit[0]."', active ='present' WHERE student_ID = '".$ID."' AND coursedate_ID = '".$row[0]."'";
                 $objQuery = mysqli_query($objCon,$strSQL);    
-                echo "<script type='text/javascript'>alert('Your Seat is $sit[0] $sit[1] $row[0] $date $ID 555555');</script>";
+                echo "<script type='text/javascript'>alert('Your Seat is $sit[0] $sit[1]');</script>";
                 $_SESSION['seat'] = $sit[0]$.sit[1];
                 echo "<script type='text/javascript'>window.location='../course_student.php';</script>";
                 }
