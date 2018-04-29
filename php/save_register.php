@@ -1,8 +1,5 @@
-<html>
-<body>
-
 <?php
-
+    session_start();
     $ID = trim($_POST['ID']);
     $Username = trim($_POST['txtUsername']);
     $Password = trim($_POST['txtPassword']);
@@ -16,7 +13,7 @@
     $Phone = trim($_POST['txtPhone']);
     $Mail = trim($_POST['txtMail']);
     $Status = $_POST['ddlStatus'];
-    include("php/config.php");
+    include("config.php");
     if($ID == "")
     {
         echo "<script type='text/javascript'>alert('Please input ID!');</script>";
@@ -109,7 +106,7 @@
     {
         $strSQL = "INSERT INTO member(ID, Username,Password, Status) VALUES ('".$ID."','".$Username."','".$Password."','".$Status."')";
         $objQuery = mysqli_query($objCon,$strSQL);
-        if ($Status == 'TEACHER'){
+        if ($Status == 'Teacher'){
             $tbl='teachert';
         }
         else{
@@ -129,10 +126,9 @@
     {
         echo "<script type='text/javascript'>alert('Register Fail!');</script>";
     }
-    
-    echo "<script type='text/javascript'>window.location='login.php';</script>";
+    $_SESSION['ID'] = $ID;
+    $_SESSION["Status"] = $Status;
+    echo "<script type='text/javascript'>window.location='../login.php';</script>";
     
 mysqli_close($objCon);
 ?>
-</body>
-</html>
