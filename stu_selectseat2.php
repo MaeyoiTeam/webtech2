@@ -54,7 +54,7 @@ include('php/config.php');
                      echo"<center><H1>attendance Check!!!!!!</H1></center>";
                      
                      
-                     echo "<form method='post' action='save_seat.php' name='radio_selectseat'>";   
+                     echo "<form method='post' action='php/save_seat.php' name='radio_selectseat'>";   
                      echo "<center><button type='submit' name='course' value='".$_SESSION['course_ID']."/".$_SESSION['sec']."/In Class'>Submit</button></center>";
                     echo"<br><center><button type='button' onclick='history.go(-1);'>Back </button></center>";
                     echo"</form>";
@@ -107,7 +107,7 @@ include('php/config.php');
                     $l = 1;
                     $n = 1;    
 
-                    echo "<form method='post' action='save_seat.php' name='radio_selectseat'>";     
+                    echo "<form method='post' action='php/save_seat.php' name='radio_selectseat'>";     
                     echo"<center><table width='100%' height='95' border='2' cellspacing='4' cellpadding='10'>";
                         for($i=1 ; $i<=$row ; $i++){
                             echo"<tr>";
@@ -130,7 +130,7 @@ include('php/config.php');
                                     $letfind=mysqli_query($objCon,$findCD);   
                                     $cd=mysqli_fetch_row($letfind);      
                                        
-                                    $strSQL = "SELECT Seat FROM room WHERE Seat = 'G$n.S$m' AND corusedate_ID ='$cd[0]'";
+                                    $strSQL = "SELECT Seat FROM room WHERE Seat = 'S$m' AND room.Group ='G$n' AND coursedate_ID ='$cd[0]'";
                                     $objQuery = mysqli_query($objCon,$strSQL);
                                     $objResult = mysqli_fetch_array($objQuery);
                                     if($objResult){
