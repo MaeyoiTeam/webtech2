@@ -62,7 +62,7 @@ else{
                      <form name="num" method="post" action="php/save_classroom.php">
 
                      Date :<select name='date'>
-                         <?php $date = "SELECT coursedate.date_date FROM coursedate WHERE coursedate.sec='".$_SESSION['sec']."' AND coursedate.course_ID ='".$_SESSION['course_ID']."'";
+                         <?php $date = "SELECT coursedate.date_date FROM coursedate WHERE coursedate.sec='".$_SESSION['sec']."' AND coursedate.course_ID ='".$_SESSION['course_ID']."' AND AND coursedate.date_date >= '".$start."'";
                      if($result=mysqli_query($objCon,$date)){
                     // Fetch one and one rosec='".$_SESSION['']."'
                     while ($row=mysqli_fetch_row($result))

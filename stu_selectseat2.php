@@ -60,10 +60,11 @@ include('php/config.php');
                     echo"</form>";
                      
                  }else{
-            
+                     
+                        $start = date('Y-m-d');
                         echo "<form id='form1' method='post' action='stu_selectseat2.php'>";
                         echo "<select name='subject'  onclick='this.form.submit()'> ";
-                        $subject = "SELECT coursedate.date_date FROM coursedate WHERE coursedate.course_ID = '".$_SESSION['course_ID']."' AND coursedate.sec = '".$_SESSION['sec']."'";
+                        $subject = "SELECT coursedate.date_date FROM coursedate WHERE coursedate.course_ID = '".$_SESSION['course_ID']."' AND coursedate.sec = '".$_SESSION['sec']."' AND coursedate.date_date >= '".$start."'";
                         if($result=mysqli_query($objCon,$subject)){
                       // Fetch one and one row
                       while ($dateval=mysqli_fetch_row($result))
