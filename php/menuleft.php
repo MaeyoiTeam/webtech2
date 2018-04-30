@@ -25,15 +25,16 @@ if(isset($_SESSION['ID'])){
 	               $result=mysqli_query($objCon,$strSQL);
                     $row=mysqli_fetch_row($result);
     $img="images/".$_SESSION['ID'].".jpg";
-	if(isset($img)){ 
-      echo "<br><img class='imgs' src='images/".$_SESSION['ID'].".jpg' width='60%' float:'center' style='padding-left:20%' style='border-radius: 50%;'><br>";
-       
-      
-    } else { 
-      
-         echo "<br><img class='imgs' src='images/defalut.jpg' width='60%' float:'center' style='padding-left:20%' style='border-radius: 50%;'><br>";
+    if($row[9]!=null){
+
+        echo "<br><img class='imgs' src='webtech2/".$row[9]."' width='60%' float:'center' style='padding-left:20%' style='border-radius: 50%;'><br>";
+      }
+    else { 
+
+        echo "<br><img class='imgs' src='images/icon/".$_SESSION["Status"]."_".$row[6].".png' width='100%' float:'center' z style='border-radius: 50%;'><br>";
       
     }
+
    	echo "<p align='center'>".$idtest."</p>"; 
    	echo "<p align='center'>".$row[1]." ".$row[2]."</p><br>";
     echo "<p align='center'> <a href='edit_profile.php' class='button button-pill button-flat'>Edit</a></p><br><br><br>";
