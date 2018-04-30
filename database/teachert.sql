@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: mysql56
--- Generation Time: Apr 30, 2018 at 09:05 AM
+-- Generation Time: Apr 30, 2018 at 09:16 AM
 -- Server version: 5.6.33
 -- PHP Version: 5.6.26
 
@@ -35,18 +35,19 @@ CREATE TABLE `teachert` (
   `Birthdate` date DEFAULT NULL,
   `Gender` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
   `Phone` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `Email` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL
+  `Email` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `photo` longblob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `teachert`
 --
 
-INSERT INTO `teachert` (`ID`, `Fname`, `Lname`, `Faculty`, `Major`, `Birthdate`, `Gender`, `Phone`, `Email`) VALUES
-(1010, 'teacher', '1', 'Engineering', 'Information Engineering', '1980-01-01', 'Male', '0811111111', '1010@kmtil.ac.th'),
-(2020, 'teacher', '2', 'Engineering', 'Information Engineering', '1980-02-02', 'Female', '0822222222', '2020@kmil.ac.th'),
-(90000001, 'sutheera', ' puntheeranurak', 'Engineeing', 'information Engineeing', NULL, 'Female', NULL, NULL),
-(90000002, 'teacher', '2tiut', 'Engineering', 'Information Engineering', '1980-02-02', 'Male', '0822222222', '90000002@kmtil.ac.th');
+INSERT INTO `teachert` (`ID`, `Fname`, `Lname`, `Faculty`, `Major`, `Birthdate`, `Gender`, `Phone`, `Email`, `photo`) VALUES
+(1010, 'teacher', '1', 'Engineering', 'Information Engineering', '1980-01-01', 'Male', '0811111111', '1010@kmtil.ac.th', ''),
+(2020, 'teacher', '2', 'Engineering', 'Information Engineering', '1980-02-02', 'Female', '0822222222', '2020@kmil.ac.th', ''),
+(90000001, 'sutheera', ' puntheeranurak', 'Engineeing', 'information Engineeing', NULL, 'Female', NULL, NULL, ''),
+(90000002, 'teacher', '2tiut', 'Engineering', 'Information Engineering', '1980-02-02', 'Male', '0822222222', '90000002@kmtil.ac.th', '');
 
 --
 -- Indexes for dumped tables
