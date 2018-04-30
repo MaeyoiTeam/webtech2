@@ -87,7 +87,7 @@ $_SESSION['course_ID']=$txt[0];
 $_SESSION['sec']=$txt[1];
 //echo $txt[0]; //course_ID
 //echo $txt[1]; // sec
-$strSQL = "SELECT course.*,teachert.* FROM course,teachert WHERE course.ID='".$txt[0]."' AND  teachert.ID=course.Teacher_ID";
+$strSQL = "SELECT course.*,teachert.* FROM course,teachert WHERE course.ID='".$txt[0]."' AND  teachert.ID=course.teacher_ID";
 
 
 if ($result=mysqli_query($objCon,$strSQL))

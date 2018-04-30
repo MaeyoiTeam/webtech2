@@ -30,14 +30,14 @@ CREATE TABLE `course` (
   `ID` int(11) NOT NULL,
   `course_name` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `Credit` smallint(6) DEFAULT NULL,
-  `Teacher_ID` int(11) DEFAULT NULL
+  `teacher_ID` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `course`
 --
 
-REPLACE INTO `course` (`ID`, `course_name`, `Credit`, `Teacher_ID`) VALUES
+REPLACE INTO `course` (`ID`, `course_name`, `Credit`, `teacher_ID`) VALUES
 (1236052, 'Telecom', 3, NULL),
 (1236053, 'Coding', 3, NULL),
 (1236054, 'Database', 3, 90000001),
@@ -237,7 +237,7 @@ REPLACE INTO `member` (`ID`, `Username`, `Password`, `Active`, `Status`) VALUES
 
 CREATE TABLE `noticemsg` (
   `id` int(11) NOT NULL,
-  `Teacher_ID` int(11) NOT NULL,
+  `teacher_ID` int(11) NOT NULL,
   `message` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `date_time` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -246,7 +246,7 @@ CREATE TABLE `noticemsg` (
 -- Dumping data for table `noticemsg`
 --
 
-REPLACE INTO `noticemsg` (`id`, `Teacher_ID`, `message`, `date_time`) VALUES
+REPLACE INTO `noticemsg` (`id`, `teacher_ID`, `message`, `date_time`) VALUES
 (80, 90000001, 'ขอย้ายวันเรียนวิชาdatabaseเป็นวันที่\r\n25/04/2561 นะจ๊ะ', '2018-04-23 00:00:00');
 
 -- --------------------------------------------------------
@@ -688,7 +688,7 @@ REPLACE INTO `webboard` (`QuestionID`, `CreateDate`, `Question`, `Details`, `Nam
 --
 ALTER TABLE `course`
   ADD PRIMARY KEY (`ID`),
-  ADD KEY `Teacher_ID` (`Teacher_ID`);
+  ADD KEY `teacher_ID` (`teacher_ID`);
 
 --
 -- Indexes for table `coursedate`
@@ -749,7 +749,7 @@ ALTER TABLE `member`
 --
 ALTER TABLE `noticemsg`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `Teacher_ID` (`Teacher_ID`);
+  ADD KEY `teacher_ID` (`teacher_ID`);
 
 --
 -- Indexes for table `reply`
@@ -887,7 +887,7 @@ ALTER TABLE `webboard`
 -- Constraints for table `course`
 --
 ALTER TABLE `course`
-  ADD CONSTRAINT `course_ibfk_1` FOREIGN KEY (`Teacher_ID`) REFERENCES `teachert` (`ID`);
+  ADD CONSTRAINT `course_ibfk_1` FOREIGN KEY (`teacher_ID`) REFERENCES `teachert` (`ID`);
 
 --
 -- Constraints for table `coursedate`
@@ -921,7 +921,7 @@ ALTER TABLE `lesson`
 -- Constraints for table `noticemsg`
 --
 ALTER TABLE `noticemsg`
-  ADD CONSTRAINT `noticemsg_ibfk_1` FOREIGN KEY (`Teacher_ID`) REFERENCES `teachert` (`ID`);
+  ADD CONSTRAINT `noticemsg_ibfk_1` FOREIGN KEY (`teacher_ID`) REFERENCES `teachert` (`ID`);
 
 --
 -- Constraints for table `room`
