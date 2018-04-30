@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: mysql56
--- Generation Time: Apr 30, 2018 at 09:04 AM
+-- Generation Time: Apr 30, 2018 at 01:01 PM
 -- Server version: 5.6.33
 -- PHP Version: 5.6.26
 
@@ -40,7 +40,9 @@ INSERT INTO `datedate` (`ID`) VALUES
 ('2018-04-25'),
 ('2018-04-26'),
 ('2018-05-02'),
-('2018-05-03');
+('2018-05-03'),
+('2018-05-09'),
+('2018-05-10');
 
 --
 -- Indexes for dumped tables
