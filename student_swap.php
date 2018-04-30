@@ -51,15 +51,19 @@ include('php/config.php');
                       
             <h1>Welcome to Student Swap Class!</h1> <br>
 
-            <form name="num" method="post" action="php/save_swap.php">
+            <form name="num" method="post" action="php/save_permission.php">
                     
-                     Date :<select name='date'><?php $start = date('Y-m-d'); $date = "SELECT coursedate.date_date FROM coursedate WHERE coursedate.sec='".$_SESSION["sec"]."'
-                     AND coursedate.course_ID = '".$_SESSION["course_ID"]."' AND coursedate.date_date >= '".$start."'";
+                Date :<select name='date'><?php $start = date('Y-m-d'); $date = "SELECT coursedate.date_date,coursedate.sec,coursedate.ID
+FROM coursedate,studentcoursedate,studentcourse
+WHERE coursedate.course_ID = '1231234'
+AND studentcoursedate.coursedate_ID=coursedate.ID
+AND studentcoursedate.studentcourse_ID= studentcourse.ID
+AND studentcourse.student_ID='".$_SESSION['ID']."'";
                      if($result=mysqli_query($objCon,$date)){
   // Fetch one and one row
   while ($row=mysqli_fetch_row($result))
     {
-      echo "<option  value='".$row[0]."'> ".$row[0]."</option>";
+      echo "<option  value='".$row[2]."'> Time:".$row[0]." Sec:".$row[1]."</option>";
     }
   // Free result set
   mysqli_free_result($result);
@@ -67,14 +71,18 @@ include('php/config.php');
                      
                      ?>
                      </select>
-            <br><h2>Swap Class to..</h2>
-                    Date :<select name='date2'><?php $date2 = "SELECT coursedate.date_date FROM coursedate WHERE coursedate.sec!='".$_SESSION["sec"]."'
-                     AND coursedate.course_ID = '".$_SESSION["course_ID"]."' AND coursedate.date_date >= '".$start."'";
+<br><h2>Swap Class to..</h2>
+                Date :<select name='date2'><?php $date2 = "SELECT DISTINCT coursedate.date_date,coursedate.sec,coursedate.ID
+FROM coursedate,studentcoursedate,studentcourse
+WHERE coursedate.course_ID = '1231234'
+AND studentcoursedate.coursedate_ID=coursedate.ID
+AND studentcoursedate.studentcourse_ID= studentcourse.ID
+AND studentcourse.student_ID!='".$_SESSION['ID']."'";
                      if($result=mysqli_query($objCon,$date2)){
   // Fetch one and one row
   while ($row=mysqli_fetch_row($result))
     {
-      echo "<option  value='".$row[0]."'> ".$row[0]."</option>";
+      echo "<option  value='".$row[2]."'> Time:".$row[0]." Sec:".$row[1]."</option>";
     }
   // Free result set
   mysqli_free_result($result);
@@ -82,22 +90,11 @@ include('php/config.php');
                      
                      ?>
                      </select>
-                   Daytime :<select name='time'><?php $date2 = "SELECT coursedate.daytime_ID FROM coursedate WHERE coursedate.sec!='".$_SESSION["sec"]."'
-                     AND coursedate.course_ID = '".$_SESSION["course_ID"]."'";
-                     if($result=mysqli_query($objCon,$date2)){
-  // Fetch one and one row
-  while ($row=mysqli_fetch_row($result))
-    {
-      echo "<option  value='".$row[0]."'> ".$row[0]."</option>";
-    }
-  // Free result set
-  mysqli_free_result($result);
-}
-                     
-                     ?>
-                     </select>     
-            <br>
-                    <input type="submit" name="Submit" value="Save">
+   
+<br>
+<input type="text" name="note">
+<br>
+            <input type="submit" name="Submit" value="Save">
 
             </form>
 

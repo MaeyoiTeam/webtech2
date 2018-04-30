@@ -41,8 +41,7 @@ include('php/config.php');
             
            
              <article >
-                 <div class="container">
- <div id="content" align="center">
+         <div class="content" align="center">
 		<h1>Annoucement</h1><br><br>
 		
 
@@ -61,8 +60,8 @@ include('php/config.php');
     <table width="600" border="1">
   <tr>
    
-      <td width="198"> <div align="center"><h3>Message</h3></div></th>
-      <td width="198"> <div align="center"><h3>Date-Time</h3></div></th>
+      <td width="198"> <div align="center"><h3>Message</h3></div></td>
+      <td width="198"> <div align="center"><h3>Date-Time</h3></div></td>
     
   </tr>
      <?php
@@ -82,6 +81,7 @@ mysqli_close($mysqli);
 ?>
     </table>  
     </div>
+                     </div>
             </article>
             
             
