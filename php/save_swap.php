@@ -6,6 +6,7 @@ session_start();
     $idper=explode("/",$permission);
 
 
+
     if($idper[0]=="Yes"){
     $sql="UPDATE swap SET permission='1' WHERE swap.ID='".$idper[1]."' ";
     $objQuery=mysqli_query($objCon,$sql);

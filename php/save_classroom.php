@@ -6,7 +6,7 @@ session_start();
 
 
 
-
+    //Find coursedate ID from courseID,sec,date
     $class ="SELECT coursedate.ID FROM coursedate WHERE coursedate.course_ID = '".$_SESSION['course_ID']."' AND coursedate.sec = '".$_SESSION['sec']."' AND coursedate.date_date = '".$date."' ";
     $result=mysqli_query($objCon,$class);
     $row=mysqli_fetch_row($result);
@@ -15,11 +15,13 @@ session_start();
     $sqlWait = "UPDATE coursedate SET active = 'wait' WHERE ID = '".$row[0]."' ";;
     $result=mysqli_query($objCon,$sqlWait);
 
-
-    $sql="SELECT studentcourse.student_ID FROM studentcourse,studentcoursedate WHERE studentcourse.course_ID='".$_SESSION['course_ID']."'  AND studentcoursedate.sec= '".$_SESSION['sec']."' AND studentcoursedate.date_date= '".$date."' AND studentcourse.ID=studentcoursedate.studentcourse_ID ";
+    //Find student ID 
+    $sql="SELECT studentcourse.student_ID FROM studentcourse,studentcoursedate WHERE studentcourse.course_ID='".$_SESSION['course_ID']."'
+    AND studentcoursedate.coursedate_ID ='".$row[0]."' AND studentcourse.ID=studentcoursedate.studentcourse_ID ";
          
     if ($result=mysqli_query($objCon,$sql)){
         $num1=0;
+        
     while ($row1=mysqli_fetch_row($result))
     {
         $num1++;

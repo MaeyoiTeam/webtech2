@@ -153,4 +153,6 @@ tr.day,tr.date2{
     background-color: #b3d9ff;
 }
 
-
+.studentlist{
+padding: inherit;
+}

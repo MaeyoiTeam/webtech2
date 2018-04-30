@@ -21,7 +21,9 @@ else{
 	}
 
 
-$sql="SELECT room.student_ID,room.active,studentt.Lname,studentt.Fname FROM room,studentt WHERE studentt.ID=room.student_ID AND room.corusedate_ID='".$_SESSION["coursedate"]."'";
+$sql="SELECT room.student_ID,room.active,studentt.Lname,studentt.Fname,studentt.Gender,studentt.photo 
+FROM room,studentt 
+WHERE studentt.ID=room.student_ID AND room.coursedate_ID='".$_SESSION["coursedate"]."'";
 $ID = array();
 $x=1;
 if ($result=mysqli_query($objCon,$sql))
@@ -33,6 +35,8 @@ if ($result=mysqli_query($objCon,$sql))
       $active[$x] =$row[1];
       $lname[$x] =$row[2];
       $fname[$x]=$row[3];
+      $gender[$x]=$row[4];
+      $photo[$x]=$row[5];
       $x++;
     }
   // Free result set
@@ -94,12 +98,13 @@ setTimeout(function(){
             
            
              <article >
+<div class="content">
 <?php
 $temp=1;
 $x=$_SESSION["num1"];
 
 
-echo  "<table cellspacing=25 cellpadding=25>";
+echo  "<table cellspacing=25 cellpadding=25 class='studentlist'>";
     for($j=0;$j<$x/5;$j++){
         echo "<tr class='chair'>";
 
@@ -118,7 +123,15 @@ echo  "<table cellspacing=25 cellpadding=25>";
         echo    "<div id='t".$temp."' style='display:none'>";
                 if(isset($ID[$temp])){
                     
-                    echo "<br><img class='imgs' src='images/".$ID[$temp].".jpg' width='100%' float:center'>";
+                    if($photo[$temp]!=null){
+
+        echo "<img class='imgs' src='webtech2/".$photo[$temp]."' width='50%' float:'center'>";
+      }
+    else { 
+
+        echo "<img class='imgs' src='images/icon/Student_".$gender[$temp].".png' width='50%'>";
+      
+    }
                     echo "<p>".$fname[$temp]." ".$lname[$temp]."</p>";        
                 }
             echo    "</div>";
@@ -132,7 +145,7 @@ echo  "<table cellspacing=25 cellpadding=25>";
     }
 echo  "</table>";
 ?>
-
+                 </div>
 </article>
 
 
