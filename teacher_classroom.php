@@ -30,7 +30,7 @@ else{
         <script type="text/javascript" src="js/time.js">  </script>
     </head>
     
-    <body onload="startTime()">
+    <body>
         <nav>
             <div id="tabs" >
              <?php include 'php/menutop.php';?>

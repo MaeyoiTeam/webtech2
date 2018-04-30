@@ -48,7 +48,7 @@ include('php/config.php');
 
 
 <?php
-    include('config.php');
+
     date_default_timezone_set("Asia/Bangkok");
     
     $strSQL = "SELECT * FROM noticemsg ";

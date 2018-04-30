@@ -68,7 +68,7 @@ setTimeout(function(){
 </script>
     </head>
     
-    <body onload="startTime()">
+    <body>
         <nav>
             <div id="tabs" >
              <?php include 'php/menutop.php';?>

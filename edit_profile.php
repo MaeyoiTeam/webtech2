@@ -13,7 +13,7 @@ if(session_status() === PHP_SESSION_ACTIVE) {session_start();}
         <link rel="stylesheet" href="css/menu.css" type="text/css" />
     </head>
     
-    <body onload="startTime()">
+    <body>
         <nav>
             <div id="tabs" >
              <?php include 'php/menutop.php';?>
