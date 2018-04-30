@@ -53,7 +53,7 @@ include('php/config.php');
                       <p>Your permission will send to your teacher</p>
             <form name="num" method="post" action="php/save_permission.php">
                     
-                Date :<select name='date'><?php $start = date('Y-m-d'); $date = "SELECT coursedate.date_date,coursedate.sec,coursedate.ID
+                Date :<select name='date'><?php $start = date('Y-m-d'); $date = "SELECT coursedate.date_date,coursedate.sec,coursedate.ID,coursedate.daytime_ID
 FROM coursedate,studentcoursedate,studentcourse
 WHERE coursedate.course_ID = '".$_SESSION['course_ID']."'
 AND studentcoursedate.coursedate_ID=coursedate.ID
@@ -69,15 +69,18 @@ AND studentcourse.student_ID='".$_SESSION['ID']."'";
   mysqli_free_result($result);
 }
                      
+/**/
+
+
                      ?>
                      </select>
 <br><h2>Swap Class to..</h2>
-                Date :<select name='date2'><?php $date2 = "SELECT DISTINCT coursedate.date_date,coursedate.sec,coursedate.ID
-FROM coursedate,studentcoursedate,studentcourse
+                Date :<select name='date2'><?php $date2 = "
+SELECT DISTINCT coursedate.date_date,coursedate.sec,coursedate.ID,coursedate.daytime_ID
+FROM coursedate
 WHERE coursedate.course_ID = '".$_SESSION['course_ID']."'
-AND studentcoursedate.coursedate_ID=coursedate.ID
-AND studentcoursedate.studentcourse_ID= studentcourse.ID
-AND studentcourse.student_ID!='".$_SESSION['ID']."'";
+
+";
                      if($result=mysqli_query($objCon,$date2)){
   // Fetch one and one row
   while ($row=mysqli_fetch_row($result))
@@ -97,6 +100,51 @@ AND studentcourse.student_ID!='".$_SESSION['ID']."'";
             <input type="submit" name="Submit" value="Save">
 
             </form>
+
+
+
+                    <h1>Swap History</h1>
+<?php
+                    $sql="SELECT studentcourse.student_ID,
+                    (SELECT coursedate.date_date FROM coursedate WHERE coursedate.ID=swap.current_couresedate),
+                    (SELECT coursedate.date_date FROM coursedate WHERE coursedate.ID=swap.move_coursedate),swap.note,swap.permission
+                    FROM swap,course,studentcourse
+                    WHERE swap.studentcourse_ID=studentcourse.ID
+                    AND studentcourse.course_ID=course.ID
+                    AND course.ID='".$_SESSION['course_ID']."'
+                    AND studentcourse.student_ID='".$_SESSION['ID']."'
+                    AND swap.permission IS NOT NULL";
+                    $objQuery=mysqli_query($objCon,$sql);
+                    
+                    if($objQuery){
+                    echo "<table class='tbl_permission'><tbody><tr>";
+                        echo "<td>Number</td>";
+                        echo "<td>Student</td>";
+                        echo "<td>Current</td>";
+                        echo "<td>move to</td>";
+                        echo "<td>note</td>";
+                        echo "<td>permission</td>";
+                    echo "<tr>";
+                    
+                    $count=1;
+                    while($row = mysqli_fetch_row($objQuery)){
+                    echo "<tr>";
+                        echo "<td>".$count."</td>";
+                        echo "<td>".$row[0]."</td>";
+                        echo "<td>".$row[1]."</td>";
+                        echo "<td>".$row[2]."</td>";
+                        echo "<td>".$row[3]."</td>";
+                    if($row[4]==0) {echo "<td>No</td>";}
+                    else {echo "<td>Yes</td>";}
+                    echo "</tr>";
+                    }
+                    echo "<tbody></table>";
+                    
+                    
+                    }
+?>
+
+
 
                  </div>
             </article>
