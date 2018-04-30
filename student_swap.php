@@ -50,12 +50,12 @@ include('php/config.php');
                   <div class="content">
                       
             <h1>Welcome to Student Swap Class!</h1> <br>
-
+                      <p>Your permission will send to your teacher</p>
             <form name="num" method="post" action="php/save_permission.php">
                     
                 Date :<select name='date'><?php $start = date('Y-m-d'); $date = "SELECT coursedate.date_date,coursedate.sec,coursedate.ID
 FROM coursedate,studentcoursedate,studentcourse
-WHERE coursedate.course_ID = '1231234'
+WHERE coursedate.course_ID = '".$_SESSION['course_ID']."'
 AND studentcoursedate.coursedate_ID=coursedate.ID
 AND studentcoursedate.studentcourse_ID= studentcourse.ID
 AND studentcourse.student_ID='".$_SESSION['ID']."'";
@@ -74,7 +74,7 @@ AND studentcourse.student_ID='".$_SESSION['ID']."'";
 <br><h2>Swap Class to..</h2>
                 Date :<select name='date2'><?php $date2 = "SELECT DISTINCT coursedate.date_date,coursedate.sec,coursedate.ID
 FROM coursedate,studentcoursedate,studentcourse
-WHERE coursedate.course_ID = '1231234'
+WHERE coursedate.course_ID = '".$_SESSION['course_ID']."'
 AND studentcoursedate.coursedate_ID=coursedate.ID
 AND studentcoursedate.studentcourse_ID= studentcourse.ID
 AND studentcourse.student_ID!='".$_SESSION['ID']."'";
@@ -92,7 +92,7 @@ AND studentcourse.student_ID!='".$_SESSION['ID']."'";
                      </select>
    
 <br>
-<input type="text" name="note">
+                Note :<input type="text" name="note">
 <br>
             <input type="submit" name="Submit" value="Save">
 

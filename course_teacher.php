@@ -42,7 +42,7 @@ echo "<script LANGUAGE='JavaScript'>window.alert('Fail');window.location.href='h
         <meta charset="UTF-8">
         
         <script type="text/javascript" src="js/mouse.js">  </script>
-        <script type="text/javascript" src="js/time.js">  </script>
+
         <link rel="stylesheet" type="text/css" href="css/themeMax.css">
         <link rel="stylesheet" href="css/menu.css" type="text/css" />
 <style>       
@@ -65,11 +65,7 @@ position: fixed;
 
 </style>   
 
-        <script language="javascript">
-setTimeout(function(){
-   window.location.reload(1);
-}, 10000);
-</script>
+
     </head>
     
     <body >
