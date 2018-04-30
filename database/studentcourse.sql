@@ -1,0 +1,144 @@
+-- phpMyAdmin SQL Dump
+-- version 4.6.4
+-- https://www.phpmyadmin.net/
+--
+-- Host: mysql56
+-- Generation Time: Apr 30, 2018 at 09:04 AM
+-- Server version: 5.6.33
+-- PHP Version: 5.6.26
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `jakapatb_59010187`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `studentcourse`
+--
+
+CREATE TABLE `studentcourse` (
+  `ID` int(11) NOT NULL,
+  `course_ID` int(11) NOT NULL,
+  `student_ID` int(11) NOT NULL,
+  `sec` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `studentcourse`
+--
+
+INSERT INTO `studentcourse` (`ID`, `course_ID`, `student_ID`, `sec`) VALUES
+(1, 1236052, 59010164, 21),
+(2, 1236052, 59010187, 21),
+(3, 1236052, 59010203, 21),
+(4, 1236052, 59010205, 21),
+(5, 1236052, 59010249, 21),
+(6, 1236052, 59010386, 21),
+(7, 1236052, 59010697, 21),
+(8, 1236052, 59010719, 22),
+(9, 1236052, 59010731, 22),
+(10, 1236052, 59010736, 22),
+(11, 1236052, 59010748, 22),
+(12, 1236052, 59010792, 22),
+(13, 1236052, 59010940, 22),
+(14, 1236052, 59011201, 22),
+(15, 1236053, 59010164, 21),
+(16, 1236053, 59010187, 21),
+(17, 1236053, 59010203, 21),
+(18, 1236053, 59010205, 21),
+(19, 1236053, 59010249, 21),
+(20, 1236053, 59010386, 21),
+(21, 1236053, 59010697, 21),
+(22, 1236053, 59010719, 22),
+(23, 1236053, 59010731, 22),
+(24, 1236053, 59010736, 22),
+(25, 1236053, 59010748, 22),
+(26, 1236053, 59010792, 22),
+(27, 1236053, 59010940, 22),
+(28, 1236053, 59011201, 22),
+(29, 1236054, 59010164, 21),
+(30, 1236054, 59010187, 21),
+(31, 1236054, 59010203, 21),
+(32, 1236054, 59010205, 21),
+(33, 1236054, 59010249, 21),
+(34, 1236054, 59010386, 21),
+(35, 1236054, 59010697, 21),
+(36, 1236054, 59010719, 22),
+(37, 1236054, 59010731, 22),
+(38, 1236054, 59010736, 22),
+(39, 1236054, 59010748, 22),
+(40, 1236054, 59010792, 22),
+(41, 1236054, 59010940, 22),
+(42, 1236054, 59011201, 22),
+(43, 1236055, 59010164, 21),
+(44, 1236055, 59010187, 21),
+(45, 1236055, 59010203, 21),
+(46, 1236055, 59010205, 21),
+(47, 1236055, 59010249, 21),
+(48, 1236055, 59010386, 21),
+(49, 1236055, 59010697, 21),
+(50, 1236055, 59010719, 22),
+(51, 1236055, 59010731, 22),
+(52, 1236055, 59010736, 22),
+(53, 1236055, 59010748, 22),
+(54, 1236055, 59010792, 22),
+(55, 1236055, 59010940, 22),
+(56, 1236055, 59011201, 22),
+(57, 1231231, 1, 1),
+(58, 1231232, 1, 1),
+(59, 1231231, 2, 1),
+(60, 1231232, 2, 1),
+(61, 1231234, 2, 1),
+(62, 1231234, 3, 2),
+(63, 1231235, 3, 2),
+(64, 1231233, 4, 2),
+(65, 1231234, 4, 2),
+(66, 1231235, 4, 2);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `studentcourse`
+--
+ALTER TABLE `studentcourse`
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `course_ID` (`course_ID`),
+  ADD KEY `studnet_ID` (`student_ID`),
+  ADD KEY `sec` (`sec`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `studentcourse`
+--
+ALTER TABLE `studentcourse`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `studentcourse`
+--
+ALTER TABLE `studentcourse`
+  ADD CONSTRAINT `studentcourse_ibfk_1` FOREIGN KEY (`student_ID`) REFERENCES `studentt` (`ID`),
+  ADD CONSTRAINT `studentcourse_ibfk_2` FOREIGN KEY (`course_ID`) REFERENCES `course` (`ID`),
+  ADD CONSTRAINT `studentcourse_ibfk_3` FOREIGN KEY (`sec`) REFERENCES `sec` (`ID`);
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
