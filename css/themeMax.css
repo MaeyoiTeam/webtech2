@@ -1,5 +1,6 @@
 *{margin:0;
     font-family: 'Muli', sans-serif;
+	
     
 }
 
@@ -155,4 +156,11 @@ tr.day,tr.date2{
 
 .studentlist{
 padding: inherit;
+
+
+}
+
+body{
+		background-image:url("../images/background.jpg");
+		background-size: 100% 100%, auto;
 }

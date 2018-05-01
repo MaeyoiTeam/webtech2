@@ -18,14 +18,16 @@ include('php/config.php');
     </head>
   
     <body>
-        <nav>
+     <nav>
             <div id="tabs" >
+             <?php include 'php/menutop.php';?>
                     
             </div>
              <div id="tabs2" >
-                  
+                   <?php include 'php/menutop3.php';?>
             </div>
             </nav>
+
 
      
         <div id="container">

@@ -18,14 +18,12 @@ include('php/config.php');
     </head>
   
     <body>
-        
-            <nav>
+        <nav>
             <div id="tabs" >
-     
                     
             </div>
              <div id="tabs2" >
-                   <?php include 'php/menutop2.php';?>
+                  
             </div>
             </nav>
 
@@ -46,8 +44,8 @@ include('php/config.php');
              <div class="content">
 
     
-<form id="form1" method="post" action="php/save_course.php">
-    <h1><center>Create Course</center></h1>
+<form id="form1" method="post" action="php/save_joincourse.php">
+    <h1><center>Join Course</center></h1>
     <center><table width="420" border="0" style="width: 420px" align="center">
         <tbody>
             <tr>
@@ -57,20 +55,12 @@ include('php/config.php');
                 </td>
             </tr>
             <tr>
-                <td> &nbsp;Course Name</td>
-                <td><input name="CourseName" type="text" id="CourseName"></td>
-            </tr>
-            <tr>
-                <td> &nbsp;Credit</td>
-                <td><input name="credit" type="text" id="credit"></td>
-            </tr>
-            <tr>
                 <td> &nbsp;Sec</td>
                 <td><input name="sec" type="text" id="sec"></td>
             </tr>
         </tbody>
         </table></center>   
-    <br><center><button type="Submit">Create</button></center>  
+    <br><center><button type="Submit">Join</button></center>  
 </form>
         
 

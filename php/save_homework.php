@@ -45,10 +45,10 @@ $strSQL = "INSERT INTO homework (ID,name,note,file,course_ID,sec,date_start,date
         $objResult = mysqli_fetch_array($objQuery);
 //โคตรชิบหาย ตรงเก็บข้อมูลให้ตรงกับ date ที่มี  
 if($objQuery){
-    echo "<script LANGUAGE='JavaScript'>window.alert('Upload Success');window.location.href='../course_teacher.php';</script>";
+    echo "<script LANGUAGE='JavaScript'>window.alert('Upload Success');window.location.href='../homework_teacher.php';</script>";
 }
 else{
-echo "<script LANGUAGE='JavaScript'>window.alert('Upload Fail');window.location.href='../course_teacher.php';</script>";
+echo "<script LANGUAGE='JavaScript'>window.alert('Upload Fail');window.location.href='../homework_teacher.php';</script>";
 }
 //TODO : ถ้ามีปัญหา ให้ไปสร้างโฟลเดอร์homework ใน uploads เปิด permissionด้วย
 ?>
