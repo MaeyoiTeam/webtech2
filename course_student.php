@@ -63,7 +63,11 @@ position: fixed;
 
 </style>   
 
-
+        <script language="javascript">
+setTimeout(function(){
+   window.location.reload(1);
+}, 10000);
+</script>
     </head>
     
     <body >
@@ -104,7 +108,7 @@ echo   "<form  action='save_course_student.php' method='post'>";
         echo "<td id='tes".$temp."'>";
         echo    "<button type='submit' name='course' value='".$ID[$temp]."/".$sec[$temp]."'>";
                 if(isset($ID[$temp])){
-                    echo "<p>".$course_name[$temp]."<br> ".$ID[$temp]."<br>".$sec[$temp]."</p></a>";        
+                    echo "<p>Subject:".$course_name[$temp]."<br>sec:".$sec[$temp]."</p></a>";        
                 }
             echo    "</div>";
 

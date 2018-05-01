@@ -18,8 +18,13 @@
 				
                 echo  "<a href='timeline_teacher.php' class='button button-pill button-flat-caution'>Timeline</a><br><br>";
                 echo  "<a href='lesson_teacher.php' class='button button-pill button-flat-caution'>Lesson</a><br><br>";
-				 echo  "<a href='homework_teacher.php' class='button button-pill button-flat-caution'>Homework</a><br><br>";
+				echo  "<a href='homework_teacher.php' class='button button-pill button-flat-caution'>Homework</a><br><br>";
+                echo  "<a href='Webboard.php' class='button button-pill button-flat-caution'>Q and A</a><br><br>";
 				echo  "<a href='teacher_classroom.php' class='button button-pill button-flat-caution' >Attendance Check </a><br><br>";
+                echo  "<a href='teacher_permission.php' class='button button-pill button-flat-caution'>Teacher Permission</a><br><br>";
+                echo  "<a href='create_course.php' class='button button-pill button-flat-caution'>Create Course</a><br><br>";
+                echo  "<a href='create_coursedate.php' class='button button-pill button-flat-caution'>Create Coursedate</a><br><br>";
+             
          }
          else{
 				
@@ -28,6 +33,8 @@
                 echo  "<a href='homework_student.php' class='button button-pill button-flat-caution'>Homework</a><br><br>";
 				echo  "<a href='Webboard.php' class='button button-pill button-flat-caution'>Q and A</a><br><br>";
 				echo  "<a href='stu_selectseat2.php' class='button button-pill button-flat-caution'>Select Seat</a><br><br>";
+                echo  "<a href='student_swap.php' class='button button-pill button-flat-caution'>Student swap</a><br><br>";
+             
             }
      }
 ?>

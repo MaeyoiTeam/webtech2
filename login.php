@@ -74,10 +74,7 @@ function ChangeCaptcha() {
 }
     
 function check() {
-if(document.getElementById('CaptchaEnter').value == document.getElementById('randomfield').value ) {
     document.getElementById("form1").submit();  
-}
-    else{alert('Secure Code is Wrong!')};
 }
 </script>
                  <form id="form1" method="post" action="check_login.php">
@@ -99,12 +96,9 @@ if(document.getElementById('CaptchaEnter').value == document.getElementById('ran
   </table>
   <br>
 </form>
-    <center><input type="text" id="randomfield" disabled></center><br>
-    <center><input id="CaptchaEnter" size="20" maxlength="6" /></center><br>
+    
     <center><button type="button" onclick="check()">Log in</button></center> 
-<form name="form2" action="register.php"> 
-    <br><center><button>Register</button></center>
-</form>
+
                  
                  
                  </div>

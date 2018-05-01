@@ -29,7 +29,7 @@ date_default_timezone_set('Asia/Bangkok');
 		</tr>
 		<tr>
 			<td width='30%'>PASSWORD : </td>
-			<td width='70%'><input type='text' name='txtpwd'></td>
+			<td width='70%'><input type='password' name='txtpwd'></td>
 		</tr>
 		<tr>
 			<td colspan='2' align='center'><input type='submit' name='btndel' value='DELETE EVENT'></td>

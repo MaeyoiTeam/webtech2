@@ -1,6 +1,6 @@
-
 <?php
-include("connect.php");
+session_start();
+include("config.php");
 date_default_timezone_set('Asia/Bangkok');
 ?>
 
@@ -11,7 +11,7 @@ date_default_timezone_set('Asia/Bangkok');
 <html>
 	<head>
 	
-<link rel="stylesheet" href="calendar.css" />
+
 
     <script>
             function closeWin()
@@ -108,19 +108,27 @@ date_default_timezone_set('Asia/Bangkok');
 
             if(isset($_GET['add']))
 			{
-                
+                //mysqli_query($objCon,$strSQL);
+				//mysqli_fetch_array($objQuery);
                 //$verify = $_SESSION['verify'];
                // $txtcaptcha = $_SESSION['blankdata'];
+			    $idcompare = $_SESSION["ID"];
+			    $userquery = "SELECT `Username`,`Password` FROM member WHERE ID = '".$idcompare."'";//กำลังแก้ตรงนี้ 5/1/2018
+				$resultuser = mysqli_query($objCon,$userquery);
+				$userpass = mysqli_fetch_array($resultuser);
+			    $userinsert = $userpass['Username'];
+				$passwordinsert = $userpass['Password'];
                 $title = $_POST['txttitle'];
 				$detail = $_POST['txtdetail'];
                 $eventdate = $month.'/'.$day.'/'.$year;
               if($title != NULL && $detail != NULL)
               {
-				$sqlinsert = "INSERT into eventcalendar(Title,Detail,eventDate,dateAdded) values ('".$title."','".$detail."','".$eventdate."',now())";
-				$resultinsert = $mysqli->query($sqlinsert);
+				$sqlinsert = "INSERT into eventcalendar(Username,Password,Title,Detail,eventDate,dateAdded) values ('".$userinsert."','".$passwordinsert."','".$title."','".$detail."','".$eventdate."',now())";
+				$resultinsert = mysqli_query($objCon,$sqlinsert);
               }
                 if($resultinsert)
 				{
+					
 					echo "<script type=\"text/javascript\">";
                     echo "alert(\"Add Event Success\");";
                     //echo "window.close();";
@@ -135,13 +143,18 @@ date_default_timezone_set('Asia/Bangkok');
 				}
 				 if($todaysDate == $eventdate)////ตรงนี้ <===
 			         {
-				        $resultnoti = $mysqli->query("SELECT * FROM `eventcalendar` WHERE eventDate='".$eventdate."'");
-				        $sqlnoti = $resultnoti->fetch_array();
+				        $resultnoti = mysqli_query($objCon,"SELECT * FROM `eventcalendar` WHERE eventDate='".$eventdate."'");
+				        $sqlnoti = mysqli_fetch_array($resultnoti);
+						$notimsg = $sqlnoti['Title'];
                         if($sqlnoti)
                         {
-                        $notimsg = $sqlnoti['Title'];
+                       echo "<script type=\"text/javascript\">";
+					   echo "var notiMsg = \"$notimsg\";";
+                   	   echo "alert(notiMsg);";
+                       //  echo "window.close();";
+                       echo "</script>";
 					   $sqldelete = "DELETE FROM `eventcalendar` WHERE eventDate='".$eventdate."'";
-					   $resultdelete = $mysqli->query($sqldelete);
+					   $resultdelete = mysqli_query($objCon,$sqldelete);
                         }
 				
                     }
@@ -149,13 +162,19 @@ date_default_timezone_set('Asia/Bangkok');
         
                  if(isset($_GET['del']))
 			     {
+			    $idcompare = $_SESSION["ID"];
+			    $userquery = "SELECT `Username`,`Password` FROM member WHERE ID = '".$idcompare."'";//กำลังแก้ตรงนี้ 5/1/2018
+				$resultuser = mysqli_query($objCon,$userquery);
+				$userpass = mysqli_fetch_array($resultuser);
+			    $userinsert = $userpass['Username'];
+				$passwordinsert = $userpass['Password'];
                  $eventdate = $month.'/'.$day.'/'.$year;
                 $delID = $_POST['txtid'];
 				$delPWD = $_POST['txtpwd'];
-				if($delID == 'admin' && $delPWD == 'moo')
+				if($delID == $userinsert && $delPWD == $passwordinsert)
 				{ 
 				$sqldelete = "DELETE FROM `eventcalendar` WHERE eventDate='".$eventdate."'";
-				$resultdelete = $mysqli->query($sqldelete);
+				$resultdelete = mysqli_query($objCon,$sqldelete);
                 }
                 if($resultdelete)
 				{
@@ -197,6 +216,12 @@ date_default_timezone_set('Asia/Bangkok');
 			</tr>
            
 			<?php 
+			    $idcompare = $_SESSION["ID"];
+			    $userquery = "SELECT `Username`,`Password` FROM member WHERE ID = '".$idcompare."'";//กำลังแก้ตรงนี้ 5/1/2018
+				$resultuser = mysqli_query($objCon,$userquery);
+				$userpass = mysqli_fetch_array($resultuser);
+			    $userinsert = $userpass['Username'];
+				$passwordinsert = $userpass['Password'];
                     for ($i = 1; $i < $numDays+1; $i++, $counter++) //loop number of days
 				{ 
 				$timeStamp = strtotime ("$year-$month-$i");//timestamp for each day in loop
@@ -204,7 +229,7 @@ date_default_timezone_set('Asia/Bangkok');
 					{ 
       						$firstDay = date ("w", $timeStamp);//where day1
       						for ($j = 0; $j < $firstDay; $j++, $counter++) //loop blank cell is not first day
-						{ 
+						    { 
       						echo "<td width='40px'>&nbsp;</td>";//blank space
       						}     
 					}
@@ -226,21 +251,21 @@ date_default_timezone_set('Asia/Bangkok');
 					}
                         
 					$todaysDate = date("m/d/Y");
-					$dateToCompare = $monthstring.'/'.$daystring.'/'.$year; 
-				    echo "<td align='center' width='40px' class='w3-hover-khaki w3-round-xxlarge w3-pale-yellow '";
+					$dateToCompare = $monthstring.'/'.$daystring.'/'.$year; //บรรทัดนี้แก้มะกี้
+				    echo "<td align='center' width='40px' ";
 				    if($todaysDate == $dateToCompare)
 				    {
-                        echo "class='w3-pink w3-round-xxlarge'";
+                        echo "class='w3-pink w3-round-xxlarge w3-hover-pale-red'";
 				    }
 				    else
 				    {
-                        $sqlCount = "select * from eventcalendar where eventDate='".$dateToCompare."'";
-                        $noOfEvent = mysqli_num_rows($mysqli->query($sqlCount));
+                        $sqlCount = "select * from eventcalendar where eventDate='".$dateToCompare."' and Username='".$userinsert."' and Password='".$passwordinsert."'";
+                        $noOfEvent = mysqli_num_rows(mysqli_query($objCon,$sqlCount));
                         if($noOfEvent >= 1)
 					   {
-						  echo "class='w3-teal w3-round-xxlarge'";	
+						  echo "class='w3-green w3-round-xxlarge w3-hover-teal'";	
 					   }
-				    }echo "><a class='w3-myfont' href='".$_SERVER['PHP_SELF']."?month=".$monthstring."&day=".$daystring."&year=".$year."&v=true' >".$i."</a></td>";//display day on column
+				    }echo "class='w3-hover-khaki w3-round-xxlarge w3-pale-yellow'><a class='w3-myfont' href='".$_SERVER['PHP_SELF']."?month=".$monthstring."&day=".$daystring."&year=".$year."&v=true' >".$i."</a></td>";//display day on column
 				$title = $_POST['txttitle'];
 				//echo "$title";
 				//
@@ -251,7 +276,7 @@ date_default_timezone_set('Asia/Bangkok');
 			?>
             <tr>
             <td colspan='7' align='center' >
-            <input  type="button" class='w3-bar-item w3-myfont w3-button w3-pink w3-round-xxlarge' value="Show Event" onClick="openWindow('php/showevent.php','All Event','width=950px,height=600px')">
+            <input  type="button" class='w3-bar-item w3-myfont w3-button w3-pink w3-round-xxlarge w3-hover-pale-red' value="Show Event" onClick="openWindow('php/showevent.php','All Event','width=950px,height=600px')">
             </td>
             </tr>
              <tr>

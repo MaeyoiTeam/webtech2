@@ -48,12 +48,10 @@ include('php/config.php');
         <div id="container">
             
             
-            <div class="closeFloating" >
-             <a onclick="onOffbar()"><button id="textCloseFloating">Close</button></a>
-            </div>
+           
             
             <div id="floatingMenu">
-			 <?php include 'php/calendar.php';?> 
+			 
             </div>
             
            
@@ -81,7 +79,7 @@ if(document.getElementById('CaptchaEnter').value == document.getElementById('ran
 }
 </script>
     
-<form id="form1" method="post" action="php/save_register.php">
+<form id="form1" method="post" action="save_register.php">
     <h1><center>Register Form</center></h1>
     <table width="420" border="0" style="width: 420px" align="center">
         <tbody>
@@ -143,8 +141,8 @@ if(document.getElementById('CaptchaEnter').value == document.getElementById('ran
                 <td> &nbsp;Status</td>
                 <td>
                     <select name="ddlStatus" id="ddlStatus">
-                        <option value="Student">Student</option>
-                        <option value="Teacher">Teacher</option>
+                        <option value="STUDENT">Student</option>
+                        <option value="TEACHER">Teacher</option>
                     </select>
                 </td>
             </tr>
