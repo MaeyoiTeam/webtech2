@@ -21,7 +21,7 @@ else{
 	}
 
 
-$sql="SELECT room.student_ID,room.active,studentt.Lname,studentt.Fname,studentt.Gender,studentt.photo 
+$sql="SELECT room.student_ID,room.active,studentt.Lname,studentt.Fname,studentt.Gender,studentt.photo ,room.Group,room.Seat
 FROM room,studentt 
 WHERE studentt.ID=room.student_ID AND room.coursedate_ID='".$_SESSION["coursedate"]."'";
 $ID = array();
@@ -37,6 +37,8 @@ if ($result=mysqli_query($objCon,$sql))
       $fname[$x]=$row[3];
       $gender[$x]=$row[4];
       $photo[$x]=$row[5];
+      $Group[$x]=$row[6];
+      $Seat[$x]=$row[7];
       $x++;
     }
   // Free result set
@@ -133,6 +135,7 @@ echo  "<table cellspacing=25 cellpadding=25 class='studentlist'>";
       
     }
                     echo "<p>".$fname[$temp]." ".$lname[$temp]."</p>";        
+                    echo "<p>Group: ".$Group[$temp]." Seat: ".$Seat[$temp]."</p>";        
                 }
             echo    "</div>";
 
