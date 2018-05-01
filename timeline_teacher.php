@@ -1,9 +1,6 @@
-
 <?php
-
+session_start();
 include('php/config.php');
-
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -46,7 +43,7 @@ include('php/config.php');
              
 <div class="container">
 	<div id="content" align="center">
-		<form action="notifyxexec.php" method="post">
+		<form action="notifyexec.php" method="post">
 		<h1>Notice Board</h1><br> 
 
 		Message<br>
@@ -61,13 +58,11 @@ include('php/config.php');
     date_default_timezone_set("Asia/Bangkok");
     
     $strSQL = "SELECT * FROM noticemsg ";
-    $showquery = $objCon->query($strSQL);
+    $showquery = mysqli_query($objCon,$strSQL);
 
  ?>
 
-<?php
-mysqli_close($mysqli);
-?>
+
 	 </div>
               </article>
             
@@ -90,3 +85,6 @@ mysqli_close($mysqli);
 
 </html>
 
+<?php
+mysqli_close($mysqli);
+?>
