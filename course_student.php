@@ -63,11 +63,6 @@ position: fixed;
 
 </style>   
 
-        <script language="javascript">
-setTimeout(function(){
-   window.location.reload(1);
-}, 10000);
-</script>
     </head>
     
     <body >
