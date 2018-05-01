@@ -113,7 +113,7 @@ WHERE coursedate.course_ID = '".$_SESSION['course_ID']."'
                     AND studentcourse.course_ID=course.ID
                     AND course.ID='".$_SESSION['course_ID']."'
                     AND studentcourse.student_ID='".$_SESSION['ID']."'
-                    ";
+                    ORDER BY swap.ID DESC";
                     $objQuery=mysqli_query($objCon,$sql);
                     
                     if($objQuery){
@@ -134,9 +134,9 @@ WHERE coursedate.course_ID = '".$_SESSION['course_ID']."'
                         echo "<td>".$row[1]."</td>";
                         echo "<td>".$row[2]."</td>";
                         echo "<td>".$row[3]."</td>";
-                    if($row[4]==0) {echo "<td>No</td>";}
-                    else if($row[4]==1){echo "<td>Yes</td>";}
-                    else{echo "<td>Wait</td>";}
+                    if($row[4]=="") {echo "<td>Wait</td>";}
+                    else if($row[4]=="0") {echo "<td>No</td>";}
+                    else if($row[4]=="1"){echo "<td>Yes</td>";}
                     echo "</tr>";
                     }
                     echo "<tbody></table>";

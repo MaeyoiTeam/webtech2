@@ -138,7 +138,7 @@ if ($result=mysqli_query($objCon,$sql))
                     AND studentcourse.course_ID=course.ID
                     AND course.ID='".$_SESSION['course_ID']."'
                     AND course.teacher_ID='".$_SESSION['ID']."'
-                    AND swap.permission IS NOT NULL";
+                    AND swap.permission IS NOT NULL ORDER BY swap.ID DESC";
                     $objQuery=mysqli_query($objCon,$sql);
                     
                     if($objQuery){
