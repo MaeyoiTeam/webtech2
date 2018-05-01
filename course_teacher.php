@@ -1,9 +1,14 @@
 <?php
 if(session_id()===''){
 session_start();
- 
-}
+ }
 if(isset($_SESSION['ID'])){
+
+if($_SESSION['Status'] != "Teacher")
+	{
+		echo "This page for Teacher only!";
+		exit();
+	}
                     $idtest = $_SESSION['ID'];
                     if($_SESSION['Status']=="Teacher"){
                         $sql = "teachert";

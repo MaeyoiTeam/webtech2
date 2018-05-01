@@ -1,8 +1,19 @@
 <?php
 if(session_id()===''){
 session_start();
- 
 }
+if(isset($_SESSION['ID'])){
+	if($_SESSION['Status'] != "Student")
+	{
+		echo "This page for Student only!";
+		exit();
+	}
+}
+else{
+	header("location:index.php");
+	}
+
+
 include('php/config.php');  
 $sql="SELECT course.ID,course.course_name,studentcourse.sec
 FROM course,studentcourse
