@@ -44,7 +44,21 @@
         echo "<script type='text/javascript'>alert('Create Success!$CourseID and$Sec and$Date and$DayTime');</script>";
         //echo "<script type='text/javascript'>window.location='login.php';</script>";
     
-    
+         $strSQL = "SELECT coursedate.ID FROM coursedate
+        WHERE coursedate.course_ID='".$CourseID."' AND coursedate.sec = '".$Sec."' 
+        AND coursedate.date_date = '".$Date."' AND coursedate.daytime_ID'".$DayTime."'";
+        $objQuery = mysqli_query($objCon,$strSQL);
+        $coursedate = mysqli_fetch_row($objQuery);
+
+        $strSQL = "SELECT studentcourse.ID FROM studentcourse
+        WHERE studentcourse.course_ID='".$_SESSION['course_ID']."' AND studentcourse.sec='".$_SESSION['sec']."')";
+        $objQuery = mysqli_query($objCon,$strSQL);
+        while($row = mysqli_fetch_row($objQuery)){
+            $sql = "INSERT INTO studentcoursedate(studentcourse_ID,coursedate_ID) VALUES ('".$row[0]."','".$coursedate."')"
+            $objQuery = mysqli_query($objCon,$sql);
+
+}
+        
     echo "<script type='text/javascript'>window.location='../course_teacher.php';</script>";
     
 mysqli_close($objCon);
