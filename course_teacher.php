@@ -17,9 +17,10 @@ if($_SESSION['Status'] != "Teacher")
                         $sql ="studentt";  
                     }
 include('php/config.php');  
-$sql="SELECT course.*,course.course_name,teachert.*
-FROM course,teachert
-WHERE  course.Teacher_ID='".$_SESSION["ID"]."'";
+$sql="SELECT coursesec.course_ID,course.course_name,coursesec.sec
+FROM coursesec,course
+WHERE coursesec.course_ID = course.ID 
+AND course.teacher_ID='".$_SESSION["ID"]."'";
 $ID = array();
 $x=1;
 if ($result=mysqli_query($objCon,$sql))
@@ -29,6 +30,7 @@ if ($result=mysqli_query($objCon,$sql))
     {
       $ID[$x]=$row[0];
       $course_name[$x] =$row[1];
+      $sec[$x] =$row[2];
       $x++;
     }
   // Free result set
@@ -45,7 +47,6 @@ echo "<script LANGUAGE='JavaScript'>window.alert('Fail');window.location.href='h
         <meta charset="UTF-8">
         
         <script type="text/javascript" src="js/mouse.js">  </script>
-        <script type="text/javascript" src="js/time.js">  </script>
         <link rel="stylesheet" type="text/css" href="css/themeMax.css">
         <link rel="stylesheet" href="css/menu.css" type="text/css" />
 <style>       
@@ -110,9 +111,9 @@ echo   "<form  action='save_course_teacher.php' method='post'>";
 
             for($i=0;$i<5;$i++){
         echo "<td id='tes".$temp."/21'>";
-        echo    "<button type='submit' name='course' value='".$ID[$temp]."/21'>";
+ echo    "<button type='submit' name='course' value='".$ID[$temp]."/".$sec[$temp]."'>";
                 if(isset($ID[$temp])){
-                    echo "<p>".$course_name[$temp]."<br> ".$ID[$temp]."<br>21</p></a>";        
+   echo "<p>".$course_name[$temp]."<br> ".$ID[$temp]."<br>".$sec[$temp]."</p></a>";               
                 }
         
             echo    "</div>";
