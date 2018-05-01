@@ -63,8 +63,8 @@ include('php/config.php');
                 <td><input name="credit" type="text" id="credit"></td>
             </tr>
             <tr>
-                <td>&nbsp;Teacher_ID</td>
-                <td><input name="TeacherID" type="text" id="TeacherID" size="20"></td>
+                <td> &nbsp;Sec</td>
+                <td><input name="sec" type="text" id="sec"></td>
             </tr>
         </tbody>
         </table></center>   

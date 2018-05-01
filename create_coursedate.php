@@ -49,25 +49,11 @@ include('php/config.php');
     <center><table width="420" border="0" style="width: 420px" align="center">
         <tbody>
             <tr>
-                <td width="500">&nbsp;Course ID</td>
-                <td width="180">
-                    <input name="CourseID" type="text" id="CourseID" size="20">
-                </td>
-            </tr>
-            <tr>
                 <td> &nbsp;Day Time</td>
                 <td><select name="DayTime" id="DayTime">
                         <option value="1">เช้า</option>
                         <option value="2">บ่าย</option>
                         <option value="3">เย็น</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td> &nbsp;Sec</td>
-                <td><select name="sec" id="sec">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
                     </select>
                 </td>
             </tr>
@@ -93,7 +79,7 @@ include('php/config.php');
             
             <aside >
                 <div id=asidemenu>
-            <?php include 'php/menuleft.php';?>
+            <?php include 'php/menuleft2.php';?>
                 </div>
            
             </aside>

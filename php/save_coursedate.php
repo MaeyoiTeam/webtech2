@@ -1,8 +1,8 @@
 <?php
     session_start();
-    $CourseID = trim($_POST['CourseID']);
+    $CourseID = $_SESSION['course_ID'];
     $DayTime = trim($_POST['DayTime']);
-    $Sec = trim($_POST['sec']);
+    $Sec = $_SESSION['sec'];
     $Date = trim($_POST['datee']);
     include("config.php");
     if($CourseID == "")
@@ -33,7 +33,7 @@
         
         $strSQL = "SELECT * FROM `datedate` WHERE datedate.ID = '".$Date."')";
         $objQuery = mysqli_query($objCon,$strSQL);
-        if($objQuery)
+        if(!$objQuery)
         {
             $strSQL = "INSERT INTO `datedate`(`ID`) VALUES ('".$Date."')";
             $objQuery = mysqli_query($objCon,$strSQL);
