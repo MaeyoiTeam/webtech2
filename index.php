@@ -50,7 +50,7 @@ include('php/config.php');
 
     date_default_timezone_set("Asia/Bangkok");
     
-    $strSQL = "SELECT * FROM noticemsg ";
+    $strSQL = "SELECT * FROM noticemsg ORDER BY noticemsg.date_time DESC ";
     $showquery = $mysqli->query($strSQL);
 
 
