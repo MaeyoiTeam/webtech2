@@ -43,10 +43,10 @@ $start = date('Y-m-d');
 $strSQL = "INSERT INTO lesson (ID,name,note,file,course_ID,sec,date) VALUES (null,'".$name."','".$note."','".$fileDestination."', '".$txt[0]."' , '".$txt[1]."' , '".$start."')";
 		$objQuery = mysqli_query($objCon,$strSQL);
 if($objQuery){
-    echo "<script LANGUAGE='JavaScript'>window.alert('Upload Success');window.location.href='../course_teacher.php';</script>";
+    echo "<script LANGUAGE='JavaScript'>window.alert('Upload Success');window.location.href='../lesson_teacher.php';</script>";
 }
 else{
-echo "<script LANGUAGE='JavaScript'>window.alert('Upload Fail');window.location.href='../course_teacher.php';</script>";
+echo "<script LANGUAGE='JavaScript'>window.alert('Upload Fail');window.location.href='../lesson_teacher.php';</script>";
 }
 //TODO : ถ้ามีปัญหา ให้ไปสร้าง โฟลเดอร์ lesson ใน uploads เปิด permissionด้วย
 

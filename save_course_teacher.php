@@ -48,26 +48,6 @@ include('php/config.php');
              <article >
                  <div class="content">
 
-
-
-
-                 <table border="1" style="width: 350px">
-    <tbody>
-      <tr>
-        <td width="87"> &nbsp;ID</td>
-        <td width="220"><?php echo '&nbsp;',$objResult["ID"];?>
-        </td>
-      </tr>
-      <tr>
-        <td> &nbsp;Name</td>
-        <td><?php echo '&nbsp;',$objResult["Fname"]." ".$objResult["Lname"];?></td>
-      </tr>
-         </tbody>
-     
-
-
-
-  </table>
                       
     <table border="1" style="width: 500px">
     <tbody>

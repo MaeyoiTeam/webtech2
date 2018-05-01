@@ -113,16 +113,10 @@ echo   "<form  action='save_course_teacher.php' method='post'>";
         echo "<td id='tes".$temp."/21'>";
  echo    "<button type='submit' name='course' value='".$ID[$temp]."/".$sec[$temp]."'>";
                 if(isset($ID[$temp])){
-   echo "<p>".$course_name[$temp]."<br> ".$ID[$temp]."<br>".$sec[$temp]."</p></a>";               
+   echo "<p>Subject:".$course_name[$temp]."<br>Sec :".$sec[$temp]."</p></a>";               
                 }
         
             echo    "</div>";
-//                
-//        echo "<td id='tes".$temp."/22'>";
-//        echo    "<button type='submit' name='course' value='".$ID[$temp]."/22'>";
-//                if(isset($ID[$temp])){
-//                    echo "<p>".$course_name[$temp]."<br> ".$ID[$temp]."<br>22</p></a>";        
-//                }
         
             echo    "</div>";
 
@@ -137,7 +131,7 @@ echo   "<form  action='save_course_teacher.php' method='post'>";
 
 echo  "</form></table>";
 ?>
-                      <a href="index.php"><img id="add" src="images/icon/ic_add_circle_black_48dp_1x.png"></a>
+                    
                  </div>
             </article>
             

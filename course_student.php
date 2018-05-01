@@ -119,8 +119,6 @@ echo   "<form  action='save_course_student.php' method='post'>";
 echo  "</form></table>";
 ?>
 
-
-                      <a href="index.php"><img id="add" src="images/icon/ic_add_circle_black_48dp_1x.png"></a>
                  </div>
             </article>
             

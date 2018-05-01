@@ -35,17 +35,19 @@ if(isset($_SESSION['ID'])){
       
     }
 
-   	echo "<p align='center'><br>".$idtest."</p>"; 
-   	echo "<p align='center'>".$row[1]." ".$row[2]."</p><br>";
+   	echo "<p align='center'><br> ID : ".$idtest."</p>"; 
+   	echo "<p align='center'> Name : ".$row[1]." ".$row[2]."</p><br>";
     echo "<p align='center'> <a href='edit_profile.php' class='button button-pill button-flat'>Edit</a></p><br><br><br>";
    
    	echo  "<a href='index.php' class='button button-pill button-flat-caution' style='padding-right:32%' >Annoucement</a><br><br>";
 	
 	if($_SESSION['Status']=="Teacher"){
                        echo  "<a href='course_teacher.php'  class='button button-pill button-flat-caution' style='padding-right:52%' >Course</a><br><br>";
+                        echo  "<a href='create_course.php' class='button button-pill button-flat-caution' style='padding-right:32%' >Create Course</a><br><br>";
                     }
                     else{
                        echo  "<a href='course_student.php' class='button button-pill button-flat-caution' style='padding-right:52%'>Course</a><br><br>";
+                        echo  "<a href='join_course.php' class='button button-pill button-flat-caution' style='padding-right:40%' >Join Course</a><br><br>";
                     }
 	
 }

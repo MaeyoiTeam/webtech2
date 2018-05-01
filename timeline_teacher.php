@@ -37,7 +37,7 @@ include('php/config.php');
             </div>
             
             <div id="floatingMenu">
-			 <?php include 'php/calendar.php';       ?> 
+			 <?php include 'php/calendar.php';?> 
             </div>
             
            

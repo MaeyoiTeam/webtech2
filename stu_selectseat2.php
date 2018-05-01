@@ -56,7 +56,7 @@ include('php/config.php');
                      
                      echo "<form method='post' action='php/save_seat.php' name='radio_selectseat'>";   
                      echo "<center><button type='submit' name='course' value='".$_SESSION['course_ID']."/".$_SESSION['sec']."/In Class'>Submit</button></center>";
-                    echo"<br><center><button type='button' onclick='history.go(-1);'>Back </button></center>";
+                    
                     echo"</form>";
                      
                  }else{
@@ -151,7 +151,7 @@ include('php/config.php');
                         
 
                         echo "<br><center><button type='submit' name='course' value='".$_SESSION['course_ID']."/".$_SESSION['sec']."'>Submit</button></center>";
-                        echo"<br><center><button type='button' onclick='history.go(-1);'>Back </button></center>";
+                        
                     echo"</form>";
 
 

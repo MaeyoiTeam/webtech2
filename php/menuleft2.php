@@ -6,11 +6,13 @@
 </head>
 <body>
 <?php
-                
-                   
+                  
+    $strSQL = "SELECT course_name FROM course WHERE ID = '".$_SESSION['course_ID']."'";
+	               $result=mysqli_query($objCon,$strSQL);
+                    $row=mysqli_fetch_row($result);           
      if(isset($_SESSION['ID'])){ 
 
-         echo "<h1>Course ID:".$_SESSION['course_ID']."</h1>";
+         echo "<h1>Course Name : ".$row[0]."</h1>";
          echo "<h1>Sec :". $_SESSION['sec']."</h1>";
          if($_SESSION["Status"]== "Teacher"){
 
@@ -22,7 +24,7 @@
                 echo  "<a href='Webboard.php' class='button button-pill button-flat-caution'>Q and A</a><br><br>";
 				echo  "<a href='teacher_classroom.php' class='button button-pill button-flat-caution' >Attendance Check </a><br><br>";
                 echo  "<a href='teacher_permission.php' class='button button-pill button-flat-caution'>Teacher Permission</a><br><br>";
-                echo  "<a href='create_course.php' class='button button-pill button-flat-caution'>Create Course</a><br><br>";
+                echo  "<a href='tech_formseat.php' class='button button-pill button-flat-caution'>Set Seat</a><br><br>";
                 echo  "<a href='create_coursedate.php' class='button button-pill button-flat-caution'>Create Coursedate</a><br><br>";
              
          }

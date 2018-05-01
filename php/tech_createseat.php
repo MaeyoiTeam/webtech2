@@ -42,23 +42,22 @@ if(isset($_POST['seat_num'])){
 
 
 if($class_id!="" && $stu_row!="" && $stu_col!="" && $stu_num!=""){
-    $strSQL = "SELECT * FROM seat WHERE corusedate_ID = '".$class_id."'";
+    $strSQL = "SELECT * FROM `seat` WHERE seat.course_ID = '".$class_id."'";
     $objQuery = mysqli_query($objCon,$strSQL);
     $objResult = mysqli_fetch_array($objQuery);
-
     if($objResult)
     {
-        $strSQL = "UPDATE `seat` SET `seat_row`='$stu_row' , `seat_col`='$stu_col' , `seat_num`='$stu_num' WHERE corusedate_ID = '$class_id'";
+        $strSQL = "UPDATE `seat` SET `seat_row`='$stu_row' , `seat_col`='$stu_col' , `seat_num`='$stu_num' WHERE seat.course_ID = '$class_id'";
 	   $objQuery = mysqli_query($objCon,$strSQL);
-        echo "<script type='text/javascript'>alert('Created Seat');</script>";
-        echo "<script type='text/javascript'>window.location='admin_page.php';</script>";	
+        echo "<script type='text/javascript'>alert('Updated Seat');</script>";
+        echo "<script type='text/javascript'>window.location='../course_teacher.php';</script>";	
     }
     else
     {
-        $strSQL="INSERT INTO seat(corusedate_ID,seat_row,seat_col,seat_num) VALUES('".$_POST["class_id"]."','".$_POST["seat_row"]."','".$_POST["seat_col"]."','".$_POST["seat_num"]."')";
+        $strSQL="INSERT INTO `seat`(`course_ID`, `seat_row`, `seat_col`, `seat_num`) VALUES ('".$class_id."','".$stu_row."','".$stu_col."','".$stu_num."')";
         $objQuery = mysqli_query($objCon,$strSQL);
         echo "<script type='text/javascript'>alert('Created Seat');</script>";
-        echo "<script type='text/javascript'>window.location='admin_page.php';</script>";	
+        echo "<script type='text/javascript'>window.location='../course_teacher.php';</script>";	
     }
     
    

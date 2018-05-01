@@ -93,12 +93,12 @@ $strSQL = "SELECT * FROM ".$sql." WHERE ID = '".$_SESSION['ID']."'";
       </tr>
 	  <tr>
         <td> &nbsp;Phone <font size="-1" color="gray"><I>(0800000000)</I></font></td>
-        <td> <input name="txtPhone" type="text" id="txtPhone" value="<?php echo $row[6];?>">
+        <td> <input name="txtPhone" type="text" id="txtPhone" value="<?php echo $row[7];?>">
         </td>
       </tr>
 	  <tr>
         <td> &nbsp;E-mail</td>
-        <td> <input name="txtEmail" type="text" id="txtEmail" value="<?php echo $row[7];?>">
+        <td> <input name="txtEmail" type="text" id="txtEmail" value="<?php echo $row[8];?>">
         </td>
       </tr>
     </tbody>
