@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: mysql56
--- Generation Time: Apr 30, 2018 at 09:41 PM
+-- Generation Time: Apr 30, 2018 at 01:02 PM
 -- Server version: 5.6.33
 -- PHP Version: 5.6.26
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `basnamfon_basnamfon`
+-- Database: `jakapatb_59010187`
 --
 
 -- --------------------------------------------------------
@@ -33,10 +33,10 @@ CREATE TABLE `coursedate` (
   `date_date` date DEFAULT NULL,
   `daytime_ID` int(11) DEFAULT NULL,
   `active` enum('on','off','wait','break') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'off',
-  `current_start` time DEFAULT NULL,
-  `breaktime` time DEFAULT NULL,
-  `current_finish` time DEFAULT NULL,
-  `duration` time DEFAULT NULL
+  `current_start` time NOT NULL,
+  `breaktime` time NOT NULL,
+  `current_finish` time NOT NULL,
+  `duration` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -59,11 +59,7 @@ INSERT INTO `coursedate` (`ID`, `course_ID`, `sec`, `date_date`, `daytime_ID`, `
 (29, 1231233, 2, '2018-05-02', 3, 'off', '00:00:00', '00:00:00', '00:00:00', '00:00:00'),
 (30, 1231235, 2, '2018-05-03', 1, 'off', '00:00:00', '00:00:00', '00:00:00', '00:00:00'),
 (31, 1231234, 1, '2018-05-09', 3, 'off', '00:00:00', '00:00:00', '00:00:00', '00:00:00'),
-(32, 1231234, 2, '2018-05-10', 3, 'off', '00:00:00', '00:00:00', '00:00:00', '00:00:00'),
-(37, 1231231, 2, '2018-05-24', 2, 'off', NULL, NULL, NULL, NULL),
-(40, 1231233, 2, '2018-05-20', 2, 'off', NULL, NULL, NULL, NULL),
-(41, 1231233, 2, '2018-02-20', 2, 'off', NULL, NULL, NULL, NULL),
-(42, 1231233, 2, '2018-02-21', 2, 'off', NULL, NULL, NULL, NULL);
+(32, 1231234, 2, '2018-05-10', 3, 'off', '00:00:00', '00:00:00', '00:00:00', '00:00:00');
 
 --
 -- Indexes for dumped tables
@@ -89,7 +85,7 @@ ALTER TABLE `coursedate`
 -- AUTO_INCREMENT for table `coursedate`
 --
 ALTER TABLE `coursedate`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 --
 -- Constraints for dumped tables
 --

@@ -35,7 +35,7 @@ if(isset($_SESSION['ID'])){
       
     }
 
-   	echo "<p align='center'>".$idtest."</p>"; 
+   	echo "<p align='center'><br>".$idtest."</p>"; 
    	echo "<p align='center'>".$row[1]." ".$row[2]."</p><br>";
     echo "<p align='center'> <a href='edit_profile.php' class='button button-pill button-flat'>Edit</a></p><br><br><br>";
    

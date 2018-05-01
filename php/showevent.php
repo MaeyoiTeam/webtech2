@@ -1,5 +1,6 @@
 <?php
-include("connect.php");
+session_start();
+include("config.php");
 date_default_timezone_set('Asia/Bangkok');
 ?>
 <html>
@@ -19,8 +20,14 @@ date_default_timezone_set('Asia/Bangkok');
 
 </body>
 <?php
-    $sqlshowevent = "SELECT   `eventDate`,`Title`, `Detail` FROM `eventcalendar` ORDER BY  `eventDate` ASC ";
-    $showquery = $mysqli->query($sqlshowevent);
+				$idcompare = $_SESSION["ID"];
+			    $userquery = "SELECT `Username`,`Password` FROM member WHERE ID = '".$idcompare."'";//กำลังแก้ตรงนี้ 5/1/2018
+				$resultuser = mysqli_query($objCon,$userquery);
+				$userpass = mysqli_fetch_array($resultuser);
+			    $userinsert = $userpass['Username'];
+				$passwordinsert = $userpass['Password'];
+    $sqlshowevent = "SELECT   `eventDate`,`Title`, `Detail` FROM `eventcalendar` WHERE Username ='".$userinsert."' and Password='".$passwordinsert."' ORDER BY  `eventDate` ASC ";
+    $showquery = mysqli_query($objCon,$sqlshowevent);
 ?>
 <div class="w3-responsive">
     <table width="600" border="1" class="w3-table-all w3-hoverable">

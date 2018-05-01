@@ -21,7 +21,7 @@ $start = date('Y-m-d');
     $fileExt = explode('.',$fileName);
     $fileActualExt = strtolower(end($fileExt));
     
-    $allowed = array('jpg','jpeg','png','gif','pdf','docx','pptx','doc','txt');
+    $allowed = array('jpg','jpeg','png','gif','pdf');
     if(in_array($fileActualExt,$allowed)){
         if($fileError === 0){
             if($fileSize < 10000000){
